@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmployWell Benefits</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-custom-blue {
+            background-color: #003366; /* EmployWell Now's brand color */
+        }
+        .text-custom-yellow {
+            color: #FFC72C;
+        }
+        /* Style for the custom message box */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Custom Message Box -->
+    <div id="messageBox" class="message-box">
+        <p id="messageText" class="text-lg mb-4"></p>
+        <button onclick="closeMessageBox()" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors">
+            OK
+        </button>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-custom-blue text-white py-4 px-6 md:px-12 flex justify-between items-center rounded-b-xl shadow-lg">
+        <div class="flex items-center space-x-4">
+            <!-- Simple SVG logo with brand name -->
+            <svg class="h-8 w-8 text-custom-yellow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <h1 class="text-2xl md:text-3xl font-bold">
+                EmployWell <span class="text-custom-yellow">Benefits</span>
+            </h1>
+        </div>
+        <!-- Simple navigation for a landing page -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="#about" class="hover:text-custom-yellow transition-colors">About Us</a>
+            <a href="#how-it-works" class="hover:text-custom-yellow transition-colors">How It Works</a>
+            <a href="#contact" class="hover:text-custom-yellow transition-colors">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-16">
+        <!-- Hero Section -->
+        <section id="hero" class="text-center mb-16">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-custom-blue leading-tight mb-4">
+                Boost Your Business & Empower Your Employees
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Enhance your team's benefits at no cost to your business. We turn payroll taxes into a powerful wellness program.
+            </p>
+            <a href="#contact" class="inline-block bg-custom-blue text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300 ease-in-out">
+                Get Your Free Quote
+            </a>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="bg-white p-8 md:p-12 rounded-3xl shadow-xl mb-16">
+            <h3 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-8">
+                About Our Program
+            </h3>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6 text-gray-700">
+                    <p class="text-lg leading-relaxed">
+                        The EmployWell Benefits program is designed to create a true win-win for your business and your employees. We help you unlock significant financial tax credits while simultaneously providing your team with a suite of valuable health and wellness benefits.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        We leverage the **Section 125 Tax Benefit Program**, a legally compliant and proven method, to fund our comprehensive wellness packages. This means you don't have to change your existing benefits, and there are no out-of-pocket costs.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Reduce your business's tax liability.</li>
+                        <li>Increase employee take-home pay.</li>
+                        <li>Enhance benefits without raising costs.</li>
+                        <li>Improve morale and retention.</li>
+                    </ul>
+                </div>
+                <div class="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+                    <!-- Placeholder image with a theme matching the brand -->
+                    <img src="https://placehold.co/600x400/003366/FFC72C?text=Financial+and+Wellness+Solution" alt="Financial and Wellness Solution" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="mb-16">
+            <h3 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-12">
+                How It Works: A Simple 4-Step Process
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto bg-custom-blue rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white text-3xl font-bold">1</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 text-custom-blue">Request Your Free Quote</h4>
+                    <p class="text-gray-600">Tell us about your team size, payroll, and benefit goals.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto bg-custom-blue rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white text-3xl font-bold">2</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 text-custom-blue">Review Your Custom Plan</h4>
+                    <p class="text-gray-600">We'll show you estimated savings and program options. No obligation.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto bg-custom-blue rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white text-3xl font-bold">3</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 text-custom-blue">Onboard Your Team</h4>
+                    <p class="text-gray-600">We handle all the setup, education, and compliance.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto bg-custom-blue rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white text-3xl font-bold">4</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 text-custom-blue">Start Saving</h4>
+                    <p class="text-gray-600">Benefits go live, your team gains, and your business saves.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="bg-custom-blue p-8 md:p-12 rounded-3xl shadow-2xl">
+            <h3 class="text-3xl md:text-4xl font-bold text-center text-white mb-8">
+                Ready to Get Started?
+            </h3>
+            <p class="text-lg text-center text-gray-200 mb-8 max-w-2xl mx-auto">
+                Fill out the form below to request your free, no-obligation quote and see how much your business can save.
+            </p>
+            <form id="contactForm" class="max-w-xl mx-auto space-y-6">
+                <div>
+                    <label for="companyName" class="block text-gray-200 font-medium mb-2">Company Name</label>
+                    <input type="text" id="companyName" name="companyName" class="w-full p-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-custom-yellow" required>
+                </div>
+                <div>
+                    <label for="teamSize" class="block text-gray-200 font-medium mb-2">Team Size (Approx.)</label>
+                    <input type="number" id="teamSize" name="teamSize" class="w-full p-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-custom-yellow" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-200 font-medium mb-2">Work Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-custom-yellow" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-200 font-medium mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="w-full p-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-custom-yellow">
+                </div>
+                <button type="submit" class="w-full bg-custom-yellow text-custom-blue text-lg font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300 ease-in-out">
+                    Submit for Free Quote
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 text-center py-6 mt-16 rounded-t-xl shadow-inner">
+        <p class="text-sm">&copy; 2025 EmployWell Benefits. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Function to show a custom message box
+        function showMessageBox(message) {
+            document.getElementById('messageText').innerText = message;
+            document.getElementById('messageBox').style.display = 'block';
+        }
+
+        // Function to close the custom message box
+        function closeMessageBox() {
+            document.getElementById('messageBox').style.display = 'none';
+        }
+
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // For now, we will simply show a success message.
+            // In a real-world scenario, you would send this data to a backend.
+            showMessageBox("Thank you! We have received your request and will be in touch shortly.");
+
+            // Clear the form fields after submission
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
