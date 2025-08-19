@@ -1,54 +1,451 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Smile Bone Benefits — Section 125, Zero Cost</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employ Well Benefits | The Win-Win for Your Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A1A2E;
+            background-attachment: fixed;
+            color: #F0F0F0;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 100%;
+            max-width: 450px;
+            max-height: 450px;
+        }
+        .chart-container-bar {
+            position: relative;
+            margin: auto;
+            height: 50vh;
+            width: 100%;
+            max-width: 800px;
+            max-height: 500px;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #BC5090, #FF764A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: #2B2B48;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #F0F0F0;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+        .flow-step {
+            position: relative;
+            background-color: #2B2B48;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            color: #F0F0F0;
+        }
+        .flow-step:hover {
+            transform: translateY(-5px);
+        }
+        .flow-step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
-<body class="text-slate-900">
-  <!-- Header -->
-  <header class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between border-b">
-    <div class="flex items-center gap-3">
-      <img src="/assets/img/logo.png" alt="Smile Bone Benefits" class="h-10 w-auto">
-      <span class="sr-only">Smile Bone Benefits</span>
+<body class="bg-[#1A1A2E] text-[#F0F0F0]">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+
+        <header class="text-center mb-16 md:mb-24">
+            <h1 class="text-4xl md:text-6xl font-black gradient-text tracking-tight mb-4">The Ultimate Win-Win</h1>
+            <p class="text-lg md:text-xl font-semibold text-gray-300 max-w-3xl mx-auto">Discover how you can give your employees a premium benefits upgrade while putting significant cash back into your business.</p>
+        </header>
+
+        <section id="hook" class="mb-16 md:mb-24">
+            <div class="card text-center">
+                 <p class="text-lg text-gray-300 mb-2 font-thin">Enter your employee count to see your projected cash credit:</p>
+                <div class="flex items-center justify-center mb-4">
+                    <input type="number" id="employeeCount" value="50" min="10" class="w-24 text-center text-4xl font-black bg-[#3A3A55] text-white rounded-lg p-2 mr-4">
+                    <h2 class="text-5xl md:text-6xl font-black gradient-text tracking-tighter" id="projectedCredit">$35,000</h2>
+                </div>
+                <p class="text-lg text-gray-300 mt-2 font-thin">Payroll Tax Credit This Year.</p>
+            </div>
+        </section>
+
+        <section id="dual-benefit" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">A Powerful Boost for Everyone</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">Our program is designed to create tangible value for both your company's bottom line and your employees' well-being.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card border-l-8 border-[#BC5090]">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">💰</span>
+                        <h3 class="text-2xl font-bold text-[#BC5090]">The Financial Win</h3>
+                    </div>
+                    <p class="text-gray-300 font-thin">By leveraging the Section 125 program, your business receives an average payroll tax credit of **$700 per employee, per year**. This isn't a cost reduction; it's a direct cash injection back into your business.</p>
+                </div>
+                <div class="card border-l-8 border-[#FF764A]">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">❤️</span>
+                        <h3 class="text-2xl font-bold text-[#FF764A]">The Cultural Win</h3>
+                    </div>
+                    <p class="text-gray-300 font-thin">Elevate your company culture and show your team they're valued. Employees get a premium suite of wellness benefits and a **$40-$50 boost on each paycheck**, improving morale and retention at no cost to them.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="employee-value" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">The Complete Wellness Package</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">We provide a robust, multi-faceted benefits package that complements your existing healthcare, focusing on total well-being.</p>
+            </div>
+            <div class="card">
+                <div class="chart-container">
+                    <canvas id="employeeBenefitsChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ai-strategy" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">✨ Boost Your Culture with AI</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">Tell us about a workplace challenge, and our AI will suggest how Employ Well Benefits can provide a strategic solution.</p>
+            </div>
+            <div class="card max-w-3xl mx-auto">
+                <textarea id="challengeInput" rows="4" class="w-full p-4 border border-gray-300 bg-[#3A3A55] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#BC5090]" placeholder="e.g., 'We're experiencing high employee turnover' or 'Our team needs better stress management tools.'"></textarea>
+                <button id="generateStrategyBtn" class="w-full mt-4 bg-gradient-to-r from-[#BC5090] to-[#FF764A] text-white font-bold py-3 px-6 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">
+                    ✨ Generate Strategy
+                </button>
+                <div id="strategyOutput" class="mt-8 p-4 bg-[#3A3A55] rounded-lg hidden">
+                    <p class="text-white font-thin" id="strategyText"></p>
+                </div>
+                <div id="loadingIndicator" class="mt-8 text-center hidden">
+                    <div class="animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#BC5090] rounded-full" role="status">
+                        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                    </div>
+                </div>
+                <div id="error-message" class="mt-4 text-[#FF764A] text-center hidden">Please enter a workplace challenge.</div>
+            </div>
+        </section>
+
+        <section id="financial-impact" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Your Financial Return Scales With You</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">The more employees you have, the greater the financial benefit to your business. See how your annual cash credit grows.</p>
+            </div>
+            <div class="card">
+                <div class="chart-container-bar">
+                    <canvas id="financialImpactChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="mechanism" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">How Is This Possible?</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">It's a simple, proven process powered by the Section 125 Tax Benefit Program. We handle everything.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <div class="flow-step">
+                    <span class="flow-step-icon text-[#BC5090]">1</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#BC5090]">Agree</h3>
+                    <p class="text-gray-300 font-thin">You agree to offer the no-cost benefits package.</p>
+                </div>
+                <div class="flow-step">
+                    <span class="flow-step-icon text-[#FF764A]">2</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#FF764A]">Enroll</h3>
+                    <p class="text-gray-300 font-thin">We enroll your employees and activate their new benefits & payroll bump.</p>
+                </div>
+                <div class="flow-step">
+                    <span class="flow-step-icon text-[#BC5090]">3</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#BC5090]">Receive</h3>
+                    <p class="text-gray-300 font-thin">Your business receives a significant payroll tax credit.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer id="cta" class="text-center">
+            <div class="card max-w-3xl mx-auto mb-4">
+                <h2 class="text-3xl font-bold text-white mb-4">Ready for your Win-Win?</h2>
+                <p class="text-lg text-white mb-8 font-thin">Let's schedule a brief, no-obligation call to calculate your exact financial credit and answer any questions you have.</p>
+                <button id="customQuoteBtn" class="w-full inline-block bg-gradient-to-r from-[#BC5090] to-[#FF764A] text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">Get Your Custom Quote</button>
+            </div>
+            <div class="card max-w-3xl mx-auto text-sm text-gray-400 p-4 font-thin">
+                <p>Employ Well Benefits is an independent sales partner and is not affiliated with the corporate brand, Employ Well Now. All inquiries and client support are handled directly by our team. Please direct any questions or scheduling to the contact information provided on this page.</p>
+            </div>
+        </footer>
+
     </div>
-    <a class="bg-blue-600 text-white px-4 py-2 rounded" href="https://calendly.com/gregryleroux/consult">Book 10-min call</a>
-  </header>
 
-  <main class="max-w-6xl mx-auto px-4">
-    <!-- Hero -->
-    <section class="grid md:grid-cols-2 gap-8 items-center py-10">
-      <div>
-        <h1 class="text-3xl md:text-4xl font-bold mb-3">Cut payroll taxes. Boost employee wellbeing. Zero cost.</h1>
-        <p class="mb-4">Section 125 program that adds $35–45 to employee paychecks and returns ~$700–900 per employee per year to the business.</p>
-        <div class="flex gap-3">
-          <a class="bg-blue-600 text-white px-5 py-3 rounded" href="https://calendly.com/gregryleroux/consult">Get savings estimate</a>
-          <a class="px-5 py-3 border rounded" href="#proof">See proof</a>
-        </div>
-        <p class="text-slate-600 mt-2">IRS-compliant. Audit-ready. No carrier change.</p>
-      </div>
-      <div>
-        <img src="/assets/img/proof-math.png" alt="No money out of pocket infographic" class="rounded shadow max-w-full">
-      </div>
-    </section>
+    <script>
+        // Helper function for wrapping text in chart labels
+        function wrapText(str, maxWidth) {
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
 
-    <!-- Proof -->
-    <section id="proof" class="text-center my-12">
-      <h2 class="text-2xl font-bold mb-6">Proof</h2>
-      <figure class="mx-auto max-w-xl">
-        <img src="/assets/img/proof-math.png" alt="$700 per employee, $35–45 paycheck increase" class="rounded shadow">
-        <figcaption class="text-slate-600 mt-2">$700–900 per employee per year. $35–45 increase per paycheck.</figcaption>
-      </figure>
-      <p class="mt-6">
-        <a class="bg-blue-600 text-white px-6 py-3 rounded" href="/assets/guide.pdf">Download the full guide (PDF)</a>
-      </p>
-    </section>
-  </main>
+            words.forEach(word => {
+                if (currentLine.length + word.length + 1 < maxWidth) {
+                    currentLine += (currentLine.length > 0 ? ' ' : '') + word;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = word;
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        }
 
-  <footer class="max-w-6xl mx-auto px-4 py-8 border-t text-slate-600">
-    <small>© Smile Bone Marketing</small>
-  </footer>
+        // Tooltip title callback for charts
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            return Array.isArray(label) ? label.join(' ') : label;
+        };
+        
+        // Color palette for charts
+        const customPalette = {
+            magenta: '#BC5090',
+            orange: '#FF764A',
+            deepBlue: '#374C80',
+            yellow: '#FFA600'
+        };
+
+        // Employee Benefits Doughnut Chart
+        const employeeBenefitsCtx = document.getElementById('employeeBenefitsChart').getContext('2d');
+        new Chart(employeeBenefitsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Mental Health Support', 'Holistic Wellness Portal', 'Identity & Mayo Clinic Programs', 'Direct Financial Boost'],
+                datasets: [{
+                    label: 'Employee Benefits',
+                    data: [30, 25, 25, 20],
+                    backgroundColor: [
+                        customPalette.magenta,
+                        customPalette.orange,
+                        customPalette.deepBlue,
+                        customPalette.yellow
+                    ],
+                    borderColor: '#2B2B48', /* Adjusted border color to match the new card background */
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 14,
+                                family: 'Inter'
+                            },
+                            color: '#F0F0F0' /* Lightened legend labels for dark background */
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        },
+                        backgroundColor: 'rgba(0,0,0,0.8)', /* Darker tooltip for contrast */
+                        titleFont: { size: 16, weight: 'bold' },
+                        bodyFont: { size: 14 },
+                        padding: 12,
+                        cornerRadius: 6
+                    }
+                }
+            }
+        });
+
+        // Financial Impact Bar Chart
+        const financialImpactCtx = document.getElementById('financialImpactChart').getContext('2d');
+        const financialLabels = ['10 Employees', '25 Employees', '50 Employees', '100 Employees', '250 Employees'];
+        const financialData = [7000, 17500, 35000, 70000, 175000];
+        
+        new Chart(financialImpactCtx, {
+            type: 'bar',
+            data: {
+                labels: financialLabels.map(label => wrapText(label, 16)),
+                datasets: [{
+                    label: 'Annual Cash Credit ($)',
+                    data: financialData,
+                    backgroundColor: customPalette.magenta,
+                    borderColor: '#2B2B48', /* Adjusted border color to match the new card background */
+                    borderWidth: 2,
+                    borderRadius: 6,
+                    hoverBackgroundColor: customPalette.orange
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000) + 'k';
+                            },
+                            color: '#F0F0F0', /* Lightened Y-axis labels for dark background */
+                            font: { size: 12 }
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.1)' /* Lightened grid lines for dark background */
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#F0F0F0', /* Lightened X-axis labels for dark background */
+                            font: { size: 12 }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(context.parsed.y);
+                                }
+                                return label;
+                            }
+                        },
+                        backgroundColor: 'rgba(0,0,0,0.8)', /* Darker tooltip for contrast */
+                        titleFont: { size: 16, weight: 'bold' },
+                        bodyFont: { size: 14 },
+                        padding: 12,
+                        cornerRadius: 6
+                    }
+                }
+            }
+        });
+
+        // Dynamic Calculator Logic
+        const employeeCountInput = document.getElementById('employeeCount');
+        const projectedCreditEl = document.getElementById('projectedCredit');
+        const annualCreditPerEmployee = 700;
+
+        const updateProjectedCredit = () => {
+            let count = parseInt(employeeCountInput.value, 10);
+            if (isNaN(count) || count < 10) {
+                count = 10;
+                employeeCountInput.value = 10;
+            }
+            const credit = count * annualCreditPerEmployee;
+            projectedCreditEl.textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(credit);
+        };
+        employeeCountInput.addEventListener('input', updateProjectedCredit);
+        updateProjectedCredit();
+
+        // Gemini API Logic
+        const challengeInput = document.getElementById('challengeInput');
+        const generateStrategyBtn = document.getElementById('generateStrategyBtn');
+        const strategyOutput = document.getElementById('strategyOutput');
+        const strategyText = document.getElementById('strategyText');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const errorMessage = document.getElementById('error-message');
+
+        const callGeminiAPI = async (prompt) => {
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            
+            const result = await response.json();
+            
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                return result.candidates[0].content.parts[0].text;
+            } else {
+                console.error("API response structure is unexpected:", result);
+                return "Sorry, I couldn't generate a strategy at this time. Please try again.";
+            }
+        };
+
+        generateStrategyBtn.addEventListener('click', async () => {
+            const userChallenge = challengeInput.value.trim();
+            if (!userChallenge) {
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => errorMessage.classList.add('hidden'), 3000);
+                return;
+            }
+            errorMessage.classList.add('hidden');
+
+            const benefits = [
+                'Mental health benefits (6 free personal therapy sessions/yr, 4 free couple therapy sessions/yr)',
+                'A holistic portal (breathwork, meditations, yoga routines, healthy recipes, mindset & self-improvement techniques)',
+                'Identity Protection Program for the employee and their family members',
+                'Addiction recovery programs',
+                'Additional programs with the Mayo Clinic'
+            ];
+
+            const prompt = `You are a strategic advisor for business owners. A business owner is considering a new benefits package called Employ Well Benefits. This package includes: ${benefits.join(', ')}. The owner's current workplace challenge is: "${userChallenge}". Please provide a brief, strategic response (2-3 paragraphs) explaining how the Employ Well Benefits program can directly address and solve this specific challenge, focusing on the leverage points for a business owner like improving culture, retention, and productivity. Do not mention the financial aspect.`;
+
+            loadingIndicator.classList.remove('hidden');
+            strategyOutput.classList.add('hidden');
+            strategyText.textContent = '';
+
+            try {
+                const strategy = await callGeminiAPI(prompt);
+                strategyText.textContent = strategy;
+                strategyOutput.classList.remove('hidden');
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                strategyText.textContent = "There was an error generating the strategy. Please try again later.";
+                strategyOutput.classList.remove('hidden');
+            } finally {
+                loadingIndicator.classList.add('hidden');
+            }
+        });
+
+        // CTA button logic
+        const customQuoteBtn = document.getElementById('customQuoteBtn');
+        customQuoteBtn.addEventListener('click', () => {
+            window.open('https://calendly.com/gregryleroux/consult', '_blank');
+        });
+    </script>
 </body>
 </html>
+
+
 
 
