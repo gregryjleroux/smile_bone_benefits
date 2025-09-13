@@ -41,10 +41,25 @@
         <button onclick="closeMessageBox()" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors">
             OK
         </button>
-    </div>
+  <header class="bg-custom-blue text-white py-8 px-10 md:px-20 flex items-center justify-between rounded-b-xl shadow-lg sticky top-0 z-50">
+  <!-- Brand -->
+  <div class="flex items-center space-x-4">
+    <!-- Simple lightning/energy icon -->
+    <svg class="w-10 h-10 text-custom-yellow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>
+    <span class="text-3xl font-extrabold">SmileBone<span class="text-custom-yellow">Benefits</span></span>
+  </div>
 
-    <!-- Header Section -->
-    <header class="bg-custom-blue text-white py-4 px-6 md:px-12 flex justify-between items-center rounded-b-xl shadow-lg">
+  <!-- Navigation -->
+  <nav class="space-x-8 text-lg font-medium">
+    <a href="#about" class="hover:text-custom-yellow transition-colors">About Us</a>
+    <a href="#how-it-works" class="hover:text-custom-yellow transition-colors">How It Works</a>
+    <a href="#contact" class="hover:text-custom-yellow transition-colors">Contact</a>
+  </nav>
+</header>
+
+
         <div class="flex items-center space-x-4">
             <!-- Simple SVG logo with brand name -->
             <svg class="h-8 w-8 text-custom-yellow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,7 +113,8 @@
                 <section id="benefits-image" class="bg-[#F3F8FB] py-12">
   <div class="container mx-auto max-w-5xl px-4">
     <img
-      <img src="assets/proof-math.png" 
+      <img src="assets/proof-math.png" alt="Smile Bone Benefits savings overview" class="w-full h-auto rounded-lg shadow-lg" loading="lazy">
+ 
      alt="Businesses and employees save using payroll tax funded wellness benefits"
      class="w-full h-auto rounded-2xl shadow-lg"
      loading="lazy">
