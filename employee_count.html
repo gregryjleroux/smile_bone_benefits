@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Section 125 Tax Impact Calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #003366;
+      color: #ffffff;
+      padding: 40px 20px;
+    }
+    
+    .calculator-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .input-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+    
+    label {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #FFC72C;
+    }
+    
+    input[type="number"] {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #003366;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    input[type="number"]:focus {
+      outline: none;
+      border-color: #FFC72C;
+      background: #ffffff;
+    }
+    
+    .results-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    
+    .result-label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #FFC72C;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .result-value {
+      font-size: 48px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    
+    .result-subtitle {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 30px;
+    }
+    
+    .breakdown {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    
+    .breakdown-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .breakdown-item:last-child {
+      border-bottom: none;
+    }
+    
+    .breakdown-label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .breakdown-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFC72C;
+    }
+    
+    .note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 15px;
+      }
+      
+      .result-value {
+        font-size: 36px;
+      }
+      
+      .input-section, .results-section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator-container">
+    
+    <div class="input-section">
+      <label for="employeeCount">Enter W-2 Employee Count:</label>
+      <input 
+        type="number" 
+        id="employeeCount" 
+        min="1" 
+        placeholder="50"
+        value="50"
+      >
+    </div>
+    
+    <div class="results-section">
+      <div class="result-label">Estimated Annual Payroll Credit</div>
+      <div class="result-value" id="totalCredit">$38,650</div>
+      <div class="result-subtitle">Based on $773 average per employee</div>
+      
+      <div class="breakdown">
+        <div class="breakdown-item">
+          <span class="breakdown-label">Employee Count</span>
+          <span class="breakdown-value" id="employeeDisplay">50</span>
+        </div>
+        <div class="breakdown-item">
+          <span class="breakdown-label">Credit Per Employee</span>
+          <span class="breakdown-value">$773</span>
+        </div>
+        <div class="breakdown-item">
+          <span class="breakdown-label">Monthly Credit</span>
+          <span class="breakdown-value" id="monthlyCredit">$3,221</span>
+        </div>
+      </div>
+      
+      <div class="note">
+        Calculation based on average FICA savings through Section 125 tax reallocation. Actual savings vary by payroll structure and employee participation. Consult your tax advisor for organization-specific impact.
+      </div>
+    </div>
+    
+  </div>
+  
+  <script>
+    const input = document.getElementById('employeeCount');
+    const totalCredit = document.getElementById('totalCredit');
+    const employeeDisplay = document.getElementById('employeeDisplay');
+    const monthlyCredit = document.getElementById('monthlyCredit');
+    
+    const CREDIT_PER_EMPLOYEE = 773;
+    
+    function formatCurrency(amount) {
+      return '$' + amount.toLocaleString('en-US', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+    }
+    
+    function calculate() {
+      const employees = parseInt(input.value) || 0;
+      const annual = employees * CREDIT_PER_EMPLOYEE;
+      const monthly = Math.round(annual / 12);
+      
+      totalCredit.textContent = formatCurrency(annual);
+      employeeDisplay.textContent = employees.toLocaleString('en-US');
+      monthlyCredit.textContent = formatCurrency(monthly);
+    }
+    
+    input.addEventListener('input', calculate);
+    
+    // Initialize
+    calculate();
+  </script>
+</body>
+</html>
