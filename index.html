@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>SmileBone Benefits - IRS Section 125 Mental Health Tax Strategy</title>
+  <title>SmileBone Benefits - IRS Section 125 Tax Strategy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="IRS Section 125 compliant payroll tax strategy converting employer FICA obligations into funded mental health benefits.">
   
@@ -23,7 +23,7 @@
     .text-custom-yellow { color: var(--sb-yellow); }
     .bg-custom-yellow { background-color: var(--sb-yellow); }
     
-    /* Video Wrapper (16:9 aspect ratio) */
+    /* Video Wrapper (16:9) */
     .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
     .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
@@ -65,9 +65,7 @@
 
     <section class="max-w-7xl mx-auto px-6 py-20 text-center">
       <span class="bg-blue-100 text-custom-blue py-1 px-4 rounded-full text-sm font-bold uppercase tracking-wider mb-6 inline-block">IRS Section 125 Compliant • Est. 1978</span>
-<h1 class="text-4xl md:text-6xl font-bold text-custom-blue mb-6 leading-tight">
-  Tax-Advantaged<br>Mental Health Strategy
-</h1>
+      <h1 class="text-4xl md:text-6xl font-bold text-custom-blue mb-6 leading-tight">Mental Health Crisis Response Program</h1>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium">$282 billion annual workforce productivity loss. IRS Section 125 provides the funding mechanism through payroll tax reallocation.</p>
       
       <a href="#contact" class="inline-block bg-custom-yellow text-custom-blue text-xl font-bold px-10 py-5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-transform">Request Tax Impact Analysis</a>
@@ -164,162 +162,4 @@
         <h2 class="text-3xl md:text-4xl font-bold text-custom-blue mb-6 text-center">Payroll Tax Impact Calculator</h2>
         <p class="text-center text-gray-600 mb-12 text-lg">Estimate your annual FICA savings instantly.</p>
 
-        <div class="bg-white rounded-2xl p-10 shadow-lg border border-gray-200 mb-16 flex flex-col md:flex-row items-center justify-center gap-12">
-          <div class="text-center">
-            <label class="block text-gray-500 text-sm font-bold uppercase mb-4">W-2 Employees</label>
-            <input type="number" id="employeeCount" value="50" min="5" class="w-40 text-center text-6xl font-bold text-custom-blue border-b-4 border-custom-yellow focus:outline-none bg-transparent py-2">
-          </div>
-          
-          <div class="text-5xl text-gray-300 hidden md:block">→</div>
-          
-          <div class="text-center">
-            <p class="text-custom-yellow text-sm font-bold uppercase mb-4">Projected Annual Credit</p>
-            <h3 class="text-6xl font-bold text-gray-900" id="projectedCredit">$38,650</h3>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-10">
-          <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
-            <h3 class="text-xl font-bold text-custom-blue mb-6 text-center">Fund Allocation</h3>
-            <div class="chart-wrapper">
-              <canvas id="benefitsChart"></canvas>
-            </div>
-          </div>
-          
-          <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
-            <h3 class="text-xl font-bold text-custom-blue mb-6 text-center">Savings Scaling</h3>
-            <div class="chart-wrapper">
-              <canvas id="impactChart"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-white py-20">
-      <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold text-custom-blue mb-10 text-center">Program Overview</h2>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/_q2FselQpPI" title="Explainer Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="bg-gray-50 py-20">
-      <div class="max-w-4xl mx-auto px-6 space-y-8">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-12">Frequently Asked Questions</h2>
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-            <h3 class="text-xl font-bold text-custom-blue mb-3">Is this legal?</h3>
-            <p class="text-gray-700 text-lg">Yes. Section 125 Cafeteria Plans are explicitly authorized by the Internal Revenue Code (1978).</p>
-        </div>
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-            <h3 class="text-xl font-bold text-custom-blue mb-3">Does this replace health insurance?</h3>
-            <p class="text-gray-700 text-lg">No. This is a supplemental benefit. Your existing plans remain unchanged.</p>
-        </div>
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-            <h3 class="text-xl font-bold text-custom-blue mb-3">How is there a credit?</h3>
-            <p class="text-gray-700 text-lg">The credit comes from FICA tax savings (7.65%) on the pre-tax funds.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="max-w-7xl mx-auto px-6 py-20">
-      <div class="bg-gray-900 text-white p-12 rounded-3xl shadow-2xl max-w-3xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-4">Request Analysis</h2>
-        <p class="text-gray-400 mb-10 text-lg">No cost. No obligation. Consult with your tax advisor.</p>
-
-        <form name="contact" method="POST" data-netlify="true" class="space-y-6 text-left max-w-lg mx-auto">
-          <input type="hidden" name="form-name" value="contact">
-          
-          <div>
-            <label class="block text-gray-400 text-sm font-bold uppercase mb-2">Company Name</label>
-            <input type="text" name="companyName" class="w-full p-4 rounded-lg text-gray-900 font-bold focus:outline-none focus:ring-4 focus:ring-custom-yellow" required>
-          </div>
-          
-          <div>
-            <label class="block text-gray-400 text-sm font-bold uppercase mb-2">Employee Count</label>
-            <input type="number" name="teamSize" class="w-full p-4 rounded-lg text-gray-900 font-bold focus:outline-none focus:ring-4 focus:ring-custom-yellow" required>
-          </div>
-          
-          <div>
-            <label class="block text-gray-400 text-sm font-bold uppercase mb-2">Work Email</label>
-            <input type="email" name="email" class="w-full p-4 rounded-lg text-gray-900 font-bold focus:outline-none focus:ring-4 focus:ring-custom-yellow" required>
-          </div>
-
-          <button type="submit" class="w-full bg-custom-yellow text-custom-blue text-xl font-bold py-4 rounded-lg hover:bg-white transition-colors mt-6 shadow-lg">
-            Submit Request
-          </button>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="bg-gray-100 text-gray-600 py-10 text-center text-sm border-t">
-    <div class="max-w-3xl mx-auto px-6">
-      <p class="font-bold text-custom-blue text-xl mb-2">SmileBone Benefits</p>
-      <p class="mb-2">Administered by: Attentive, EmployWell Plus, CP+, Vero.</p>
-      <p>© 2025 Smile Bone Benefits. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile Menu
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-
-    // Calculator & Charts
-    const empInput = document.getElementById('employeeCount');
-    const creditDisplay = document.getElementById('projectedCredit');
-    const creditPerEmp = 773;
-
-    // Charts Config (Arial, Standard Size)
-    Chart.defaults.font.family = 'Arial';
-    Chart.defaults.font.size = 14;
-    Chart.defaults.font.weight = 'bold';
-    
-    // Doughnut
-    const ctxBenefits = document.getElementById('benefitsChart').getContext('2d');
-    new Chart(ctxBenefits, {
-      type: 'doughnut',
-      data: {
-        labels: ['Mental Health (90%)', 'Cash (10%)', 'Savings (7.65%)'],
-        datasets: [{
-          data: [90, 10, 7.65],
-          backgroundColor: ['#003366', '#FFC72C', '#10B981'],
-          borderWidth: 0
-        }]
-      },
-      options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { position: 'bottom' } } }
-    });
-
-    // Bar Chart
-    const ctxImpact = document.getElementById('impactChart').getContext('2d');
-    new Chart(ctxImpact, {
-      type: 'bar',
-      data: {
-        labels: ['10', '50', '100', '250'],
-        datasets: [{
-          label: 'Credit',
-          data: [7730, 38650, 77300, 193250],
-          backgroundColor: '#003366',
-          borderRadius: 4
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero: true, ticks: { callback: (val) => '$' + val/1000 + 'k' } } }
-      }
-    });
-
-    // Instant Calculator Update
-    empInput?.addEventListener('input', (e) => {
-      const count = parseInt(e.target.value) || 0;
-      creditDisplay.innerText = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(count * creditPerEmp);
-    });
-  </script>
-</body>
-</html>
+        <div class="bg-white rounded-2xl p-10 shadow-lg border border-gray-200 mb-16 flex flex-col md:flex-row items-center justify-center gap-12
