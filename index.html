@@ -5,50 +5,57 @@
   <title>SmileBone Benefits - IRS Section 125 Mental Health Tax Strategy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="IRS Section 125 compliant payroll tax strategy converting employer FICA obligations into funded mental health benefits.">
-  <meta property="og:title" content="SmileBone Benefits">
-  <meta property="og:description" content="IRS Section 125 compliant payroll tax strategy converting employer FICA obligations into funded mental health benefits.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
   <style>
-    :root{--sb-blue:#003366;--sb-yellow:#FFC72C}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    .bg-custom-blue{background-color:var(--sb-blue)}
-    .text-custom-yellow{color:var(--sb-yellow)}
-    .bg-custom-yellow{background-color:var(--sb-yellow)}
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:40}
-    .modal{position:fixed;inset:0;display:none;z-index:50}
-    .modal[aria-hidden="false"],.modal-backdrop[data-open="true"]{display:block}
-    .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    :root { --sb-blue: #003366; --sb-yellow: #FFC72C; }
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; }
     
-    /* Clean up input numbers */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .bg-custom-blue { background-color: var(--sb-blue); }
+    .text-custom-blue { color: var(--sb-blue); }
+    .text-custom-yellow { color: var(--sb-yellow); }
+    .bg-custom-yellow { background-color: var(--sb-yellow); }
+    
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: none; z-index: 40; }
+    .modal { position: fixed; inset: 0; display: none; z-index: 50; }
+    .modal[aria-hidden="false"], .modal-backdrop[data-open="true"] { display: block; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+    
+    /* Chart containers */
+    .chart-wrapper { position: relative; height: 300px; width: 100%; }
+    
+    /* Clean inputs */
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     input[type=number] { -moz-appearance: textfield; }
   </style>
   <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="1iH8HFLdWXBT0l65q" data-version="062024"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-900">
 
   <header class="bg-custom-blue text-white sticky top-0 z-30 shadow-lg">
     <div class="max-w-7xl mx-auto px-5 md:px-10">
       <div class="h-20 md:h-24 flex items-center justify-between">
         <a href="#" class="flex items-center gap-3">
-          <span class="text-3xl md:text-4xl font-extrabold tracking-tight">SmileBone<span class="text-custom-yellow">Benefits</span></span>
+          <span class="text-3xl md:text-4xl font-black tracking-tight">SmileBone<span class="text-custom-yellow">Benefits</span></span>
         </a>
 
-        <nav class="hidden md:flex items-center gap-10 text-lg">
-          <a href="#crisis" class="hover:text-custom-yellow">Crisis Data</a>
-          <a href="#tax-code" class="hover:text-custom-yellow">Tax Code</a>
-          <a href="#how-it-works" class="hover:text-custom-yellow">How It Works</a>
-          <a href="#faq" class="hover:text-custom-yellow">FAQ</a>
-          <a href="#contact" class="hover:text-custom-yellow">Contact</a>
+        <nav class="hidden md:flex items-center gap-10 text-lg font-bold">
+          <a href="#crisis" class="hover:text-custom-yellow transition-colors">Crisis Data</a>
+          <a href="#tax-code" class="hover:text-custom-yellow transition-colors">Tax Code</a>
+          <a href="#calculator" class="hover:text-custom-yellow transition-colors">Calculator</a>
+          <a href="#faq" class="hover:text-custom-yellow transition-colors">FAQ</a>
+          <a href="#contact" class="hover:text-custom-yellow transition-colors">Contact</a>
         </nav>
 
-        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg bg-white/10 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg bg-white/10 hover:bg-white/20 focus:outline-none" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
           <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
           <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
@@ -56,10 +63,10 @@
     </div>
 
     <div id="mobileMenu" class="md:hidden hidden bg-custom-blue/95 border-t border-white/10">
-      <nav class="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-4 text-lg">
+      <nav class="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-4 text-lg font-bold">
         <a href="#crisis" class="py-2 text-white hover:text-custom-yellow">Crisis Data</a>
         <a href="#tax-code" class="py-2 text-white hover:text-custom-yellow">Tax Code</a>
-        <a href="#how-it-works" class="py-2 text-white hover:text-custom-yellow">How It Works</a>
+        <a href="#calculator" class="py-2 text-white hover:text-custom-yellow">Calculator</a>
         <a href="#faq" class="py-2 text-white hover:text-custom-yellow">FAQ</a>
         <a href="#contact" class="py-2 text-white hover:text-custom-yellow">Contact</a>
       </nav>
@@ -70,190 +77,197 @@
 
     <section id="hero" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-20 text-center">
       <div class="bg-custom-blue text-white py-3 px-6 rounded-full inline-block mb-6">
-        <span class="text-sm font-semibold">IRS Section 125 Compliant • Established 1978</span>
+        <span class="text-sm font-bold uppercase tracking-wider">IRS Section 125 Compliant • Established 1978</span>
       </div>
-      <h1 class="text-3xl md:text-5xl font-extrabold text-custom-blue leading-tight">Mental Health Crisis Response Program</h1>
-      <p class="mt-6 text-lg md:text-xl text-gray-700 max-w-4xl mx-auto">$282 billion annual workforce productivity loss. IRS Section 125 provides the funding mechanism through payroll tax reallocation.</p>
+      <h1 class="text-4xl md:text-6xl font-black text-custom-blue leading-tight tracking-tight">Mental Health Crisis Response Program</h1>
+      <p class="mt-6 text-xl text-gray-700 max-w-4xl mx-auto font-medium leading-relaxed">$282 billion annual workforce productivity loss. IRS Section 125 provides the funding mechanism through payroll tax reallocation.</p>
       
-      <div class="mt-8 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
-        <div class="bg-white p-6 rounded-xl shadow-lg">
-          <div class="text-3xl font-bold text-custom-blue">$773</div>
-          <div class="text-sm text-gray-600 mt-2">Average employer payroll credit per employee annually</div>
+      <div class="mt-12 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+          <div class="text-5xl font-black text-custom-blue tracking-tight">$773</div>
+          <div class="text-sm font-bold text-gray-500 mt-2 uppercase">Avg. Employer Payroll Credit Per Employee</div>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg">
-          <div class="text-3xl font-bold text-custom-blue">89%</div>
-          <div class="text-sm text-gray-600 mt-2">Employee retention rate (industry avg: 71%)</div>
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+          <div class="text-5xl font-black text-custom-blue tracking-tight">89%</div>
+          <div class="text-sm font-bold text-gray-500 mt-2 uppercase">Retention Rate (Industry Avg: 71%)</div>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg">
-          <div class="text-3xl font-bold text-custom-blue">23%</div>
-          <div class="text-sm text-gray-600 mt-2">Reduction in health claims</div>
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+          <div class="text-5xl font-black text-custom-blue tracking-tight">23%</div>
+          <div class="text-sm font-bold text-gray-500 mt-2 uppercase">Reduction in Health Claims</div>
         </div>
       </div>
 
-      <a href="#contact" class="mt-8 inline-block bg-custom-yellow text-custom-blue text-lg font-bold px-8 py-4 rounded-full shadow hover:brightness-95">Request Tax Impact Analysis</a>
+      <a href="#contact" class="mt-12 inline-block bg-custom-yellow text-custom-blue text-xl font-extrabold px-10 py-5 rounded-full shadow-lg hover:brightness-95 transform transition hover:-translate-y-1">Request Tax Impact Analysis</a>
     </section>
 
     <section id="crisis" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-16">
-      <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
-        <h2 class="text-2xl md:text-4xl font-bold text-center text-custom-blue mb-10">U.S. Workplace Mental Health Crisis</h2>
+      <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+        <h2 class="text-3xl md:text-5xl font-black text-center text-custom-blue mb-12">U.S. Workplace Mental Health Crisis</h2>
         
-        <div class="grid md:grid-cols-3 gap-8 mb-10">
+        <div class="grid md:grid-cols-3 gap-10 mb-12">
           <div class="text-center">
-            <div class="text-5xl font-extrabold text-custom-blue mb-2">76%</div>
-            <div class="text-sm text-gray-600">of U.S. workers report at least one mental health symptom</div>
+            <div class="text-6xl font-black text-custom-blue mb-2">76%</div>
+            <div class="text-sm font-bold text-gray-600 uppercase tracking-wide">Workers report mental health symptoms</div>
           </div>
           <div class="text-center">
-            <div class="text-5xl font-extrabold text-custom-blue mb-2">40%</div>
-            <div class="text-sm text-gray-600">of employee turnover is directly stress-related</div>
+            <div class="text-6xl font-black text-custom-blue mb-2">40%</div>
+            <div class="text-sm font-bold text-gray-600 uppercase tracking-wide">Turnover is stress-related</div>
           </div>
           <div class="text-center">
-            <div class="text-5xl font-extrabold text-custom-blue mb-2">12</div>
-            <div class="text-sm text-gray-600">unplanned absence days/year for workers with poor mental health</div>
+            <div class="text-6xl font-black text-custom-blue mb-2">12</div>
+            <div class="text-sm font-bold text-gray-600 uppercase tracking-wide">Unplanned absence days/year</div>
           </div>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-xl">
-          <h3 class="text-xl font-bold text-custom-blue mb-4">Employer Cost Per Employee (Mental Health-Related)</h3>
-          <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-gray-50 p-8 rounded-2xl">
+          <h3 class="text-2xl font-bold text-custom-blue mb-6">Employer Cost Per Employee (Mental Health-Related)</h3>
+          <div class="grid md:grid-cols-2 gap-8">
             <div>
-              <p class="text-gray-700"><strong>Lost productivity, absenteeism, turnover:</strong></p>
-              <p class="text-2xl font-bold text-custom-blue">$1,488/year</p>
+              <p class="text-gray-600 font-medium mb-1">Lost productivity, absenteeism, turnover:</p>
+              <p class="text-3xl font-black text-custom-blue">$1,488/year</p>
             </div>
             <div>
-              <p class="text-gray-700"><strong>Burnout and disengagement (non-managerial):</strong></p>
-              <p class="text-2xl font-bold text-custom-blue">$3,999/year</p>
+              <p class="text-gray-600 font-medium mb-1">Burnout and disengagement:</p>
+              <p class="text-3xl font-black text-custom-blue">$3,999/year</p>
             </div>
           </div>
-          <p class="text-sm text-gray-600 mt-4">Job stress costs U.S. companies more than $300 billion annually in health costs, absenteeism, and underperformance.</p>
         </div>
       </div>
     </section>
 
-    <section id="tax-code" class="bg-custom-blue py-12 md:py-16">
+    <section id="tax-code" class="bg-custom-blue py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-5 md:px-10">
-        <h2 class="text-2xl md:text-4xl font-bold text-center text-white mb-10">IRS Tax Code Foundation</h2>
-        <p class="text-center text-gray-200 mb-10 max-w-3xl mx-auto">This program operates under established IRS authority. Codified federal tax law, not a loophole.</p>
+        <h2 class="text-3xl md:text-5xl font-black text-center text-white mb-12">IRS Tax Code Foundation</h2>
+        <p class="text-center text-gray-300 mb-16 max-w-3xl mx-auto text-lg">This program operates under established IRS authority. Codified federal tax law, not a loophole.</p>
         
-        <div class="grid md:grid-cols-4 gap-6 mb-10">
-          <div class="bg-white/10 p-6 rounded-xl">
-            <h3 class="text-lg font-bold text-custom-yellow mb-2">Section 125</h3>
-            <p class="text-gray-200 text-sm">Cafeteria plan authority for pre-tax premium deductions. Enacted 1978.</p>
+        <div class="grid md:grid-cols-4 gap-6 mb-16">
+          <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/10">
+            <h3 class="text-xl font-bold text-custom-yellow mb-2">Section 125</h3>
+            <p class="text-gray-300 text-sm">Cafeteria plan authority for pre-tax premium deductions. Enacted 1978.</p>
           </div>
-          <div class="bg-white/10 p-6 rounded-xl">
-            <h3 class="text-lg font-bold text-custom-yellow mb-2">Section 105</h3>
-            <p class="text-gray-200 text-sm">Self-Insured Medical Reimbursement Plan (SIMRP) for qualified medical expenses.</p>
+          <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/10">
+            <h3 class="text-xl font-bold text-custom-yellow mb-2">Section 105</h3>
+            <p class="text-gray-300 text-sm">Self-Insured Medical Reimbursement Plan (SIMRP).</p>
           </div>
-          <div class="bg-white/10 p-6 rounded-xl">
-            <h3 class="text-lg font-bold text-custom-yellow mb-2">Section 213(d)</h3>
-            <p class="text-gray-200 text-sm">Tax-free benefit qualification standards for medical care expenses.</p>
+          <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/10">
+            <h3 class="text-xl font-bold text-custom-yellow mb-2">Section 213(d)</h3>
+            <p class="text-gray-300 text-sm">Tax-free benefit qualification standards for medical care.</p>
           </div>
-          <div class="bg-white/10 p-6 rounded-xl">
-            <h3 class="text-lg font-bold text-custom-yellow mb-2">Section 62(a)</h3>
-            <p class="text-gray-200 text-sm">Deduction authority for work-related expenses on pre-tax basis.</p>
+          <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/10">
+            <h3 class="text-xl font-bold text-custom-yellow mb-2">Section 62(a)</h3>
+            <p class="text-gray-300 text-sm">Deduction authority for work-related expenses.</p>
           </div>
         </div>
 
-        <div class="bg-white/10 p-6 md:p-8 rounded-xl max-w-4xl mx-auto">
-          <h3 class="text-xl font-bold text-white mb-4">Tax Reallocation Mechanics</h3>
-          <p class="text-gray-200 mb-4">Employee funds the employer would withhold for tax are released from tax liability under Section 125 authority. Not employer money. Not new employee deductions.</p>
-          <div class="grid md:grid-cols-3 gap-4 text-gray-200">
-            <div>
-              <p class="font-bold text-custom-yellow">90%</p>
-              <p class="text-sm">Allocated to mental health benefits (IRS compliance requirement)</p>
+        <div class="bg-white/10 p-8 rounded-2xl max-w-4xl mx-auto border border-white/10">
+          <h3 class="text-2xl font-bold text-white mb-6">Tax Reallocation Mechanics</h3>
+          <p class="text-gray-300 mb-8 text-lg">Employee funds the employer would withhold for tax are released from tax liability. Not employer money. Not new employee deductions.</p>
+          <div class="grid md:grid-cols-3 gap-8 text-gray-200">
+            <div class="text-center md:text-left">
+              <p class="text-5xl font-black text-custom-yellow mb-2">90%</p>
+              <p class="text-sm font-semibold">Allocated to mental health benefits</p>
             </div>
-            <div>
-              <p class="font-bold text-custom-yellow">10%</p>
-              <p class="text-sm">Returned to employee paycheck ($35-40/check increase)</p>
+            <div class="text-center md:text-left">
+              <p class="text-5xl font-black text-custom-yellow mb-2">10%</p>
+              <p class="text-sm font-semibold">Returned to employee paycheck</p>
             </div>
-            <div>
-              <p class="font-bold text-custom-yellow">7.65%</p>
-              <p class="text-sm">Employer FICA savings on reallocated amount</p>
+            <div class="text-center md:text-left">
+              <p class="text-5xl font-black text-custom-yellow mb-2">7.65%</p>
+              <p class="text-sm font-semibold">Employer FICA savings</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="results" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-16">
-      <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
-        <h2 class="text-2xl md:text-4xl font-bold text-center text-custom-blue mb-10">Program Implementation Results</h2>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-gray-50 p-6 rounded-xl">
-            <h3 class="text-xl font-bold text-custom-blue mb-4">Employer Outcomes</h3>
-            <ul class="space-y-3 text-gray-700">
-              <li>• $773 average payroll credit per employee annually</li>
-              <li>• 89% employee retention rate (vs 71% industry average)</li>
-              <li>• 23% reduction in health claims</li>
-              <li>• 50-employee company: $38,650 annual payroll credit</li>
-            </ul>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-xl">
-            <h3 class="text-xl font-bold text-custom-blue mb-4">Employee Benefits</h3>
-            <ul class="space-y-3 text-gray-700">
-              <li>• 6 personal therapy sessions/year ($0 copay)</li>
-              <li>• 4 couples therapy sessions/year ($0 copay)</li>
-              <li>• Mayo Clinic mental health programs</li>
-              <li>• Addiction recovery programs</li>
-              <li>• Wellness portal access</li>
-              <li>• Identity protection (employee + family)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cost-of-inaction" class="bg-gray-100 py-12 md:py-16">
+    <section id="calculator" class="bg-gray-50 py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-5 md:px-10">
-        <h2 class="text-2xl md:text-4xl font-bold text-center text-custom-blue mb-10">Organizations Not Addressing Mental Health Face:</h2>
-        
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div class="bg-white p-6 rounded-xl shadow-lg">
-            <div class="text-3xl font-bold text-custom-blue mb-2">$1,488</div>
-            <p class="text-gray-700">Annual cost per employee in lost productivity, absenteeism, and turnover</p>
+        <h2 class="text-3xl md:text-5xl font-black text-center text-custom-blue mb-6">Payroll Tax Impact Calculator</h2>
+        <p class="text-center text-gray-600 mb-12 text-lg">Enter your W-2 employee count to see your projected annual savings.</p>
+
+        <div class="max-w-4xl mx-auto bg-custom-blue rounded-3xl p-8 md:p-12 shadow-2xl text-white mb-16 text-center">
+          <label class="block text-custom-yellow font-bold uppercase tracking-wider mb-4">Number of W-2 Employees</label>
+          <div class="flex items-center justify-center gap-4">
+            <input type="number" id="employeeCount" value="50" min="5" class="w-40 bg-white/10 border-2 border-custom-yellow text-white text-5xl font-black text-center rounded-xl p-4 focus:outline-none focus:bg-white/20 transition-colors">
           </div>
-          <div class="bg-white p-6 rounded-xl shadow-lg">
-            <div class="text-3xl font-bold text-custom-blue mb-2">40%</div>
-            <p class="text-gray-700">Of employee turnover driven by workplace stress and burnout</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-lg">
-            <div class="text-3xl font-bold text-custom-blue mb-2">12 days</div>
-            <p class="text-gray-700">Additional unplanned absences per year for employees with poor mental health</p>
+          
+          <div class="mt-8 pt-8 border-t border-white/10">
+            <p class="text-gray-300 font-medium mb-2">Projected Annual Employer Credit</p>
+            <h3 class="text-5xl md:text-7xl font-black text-custom-yellow tracking-tighter" id="projectedCredit">$38,650</h3>
           </div>
         </div>
 
-        <div class="mt-10 max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-lg">
-          <p class="text-gray-700 text-center"><strong>IRS Section 125 reallocates existing payroll tax liability to fund the mental health response.</strong> Organizations implementing this structure convert a regulatory compliance mechanism into a funded workforce preservation program.</p>
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+            <h3 class="text-xl font-bold text-custom-blue mb-6 text-center">Where the Funds Go</h3>
+            <div class="chart-wrapper">
+              <canvas id="benefitsChart"></canvas>
+            </div>
+          </div>
+          
+          <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+            <h3 class="text-xl font-bold text-custom-blue mb-6 text-center">Employer Savings Scale</h3>
+            <div class="chart-wrapper">
+              <canvas id="impactChart"></canvas>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="how-it-works" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-10">Implementation Process</h2>
+    <section id="results" class="max-w-7xl mx-auto px-5 md:px-10 py-16">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-custom-blue text-white p-10 rounded-3xl shadow-lg">
+          <h3 class="text-3xl font-black text-custom-yellow mb-6">Employer Outcomes</h3>
+          <ul class="space-y-4 text-lg">
+            <li class="flex items-start gap-3"><span class="text-custom-yellow font-bold">✓</span> $773 average payroll credit per employee</li>
+            <li class="flex items-start gap-3"><span class="text-custom-yellow font-bold">✓</span> 89% employee retention rate</li>
+            <li class="flex items-start gap-3"><span class="text-custom-yellow font-bold">✓</span> 23% reduction in health claims</li>
+            <li class="flex items-start gap-3"><span class="text-custom-yellow font-bold">✓</span> Zero net cost implementation</li>
+          </ul>
+        </div>
+        <div class="bg-white border-2 border-gray-100 p-10 rounded-3xl shadow-lg">
+          <h3 class="text-3xl font-black text-custom-blue mb-6">Employee Benefits</h3>
+          <ul class="space-y-4 text-lg text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-custom-blue font-bold">•</span> 6 personal therapy sessions ($0 copay)</li>
+            <li class="flex items-start gap-3"><span class="text-custom-blue font-bold">•</span> 4 couples therapy sessions ($0 copay)</li>
+            <li class="flex items-start gap-3"><span class="text-custom-blue font-bold">•</span> Mayo Clinic mental health programs</li>
+            <li class="flex items-start gap-3"><span class="text-custom-blue font-bold">•</span> Identity protection (employee + family)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="max-w-7xl mx-auto px-5 md:px-10 py-16 border-t border-gray-200">
+      <h2 class="text-3xl md:text-5xl font-black text-center text-custom-blue mb-12">Implementation Process</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center">
-          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 1</h3>
+        <div class="bg-white p-8 rounded-3xl shadow-xl text-center border border-gray-100 hover:shadow-2xl transition-shadow">
+          <div class="w-12 h-12 bg-custom-blue text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+          <h3 class="text-xl font-bold text-custom-blue mb-2">Analysis</h3>
           <p class="text-gray-600">Submit payroll structure for tax impact analysis.</p>
         </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center">
-          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 2</h3>
-          <p class="text-gray-600">Review compliance documentation and projected payroll credit.</p>
+        <div class="bg-white p-8 rounded-3xl shadow-xl text-center border border-gray-100 hover:shadow-2xl transition-shadow">
+          <div class="w-12 h-12 bg-custom-blue text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+          <h3 class="text-xl font-bold text-custom-blue mb-2">Review</h3>
+          <p class="text-gray-600">Review compliance documentation and projected credits.</p>
         </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center">
-          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 3</h3>
-          <p class="text-gray-600">Seamless onboarding. We handle setup and employee education.</p>
+        <div class="bg-white p-8 rounded-3xl shadow-xl text-center border border-gray-100 hover:shadow-2xl transition-shadow">
+          <div class="w-12 h-12 bg-custom-blue text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+          <h3 class="text-xl font-bold text-custom-blue mb-2">Onboard</h3>
+          <p class="text-gray-600">Seamless setup. We handle employee education.</p>
         </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center">
-          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 4</h3>
-          <p class="text-gray-600">Tax reallocation begins. Mental health access activates.</p>
+        <div class="bg-white p-8 rounded-3xl shadow-xl text-center border border-gray-100 hover:shadow-2xl transition-shadow">
+          <div class="w-12 h-12 bg-custom-yellow text-custom-blue rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+          <h3 class="text-xl font-bold text-custom-blue mb-2">Activate</h3>
+          <p class="text-gray-600">Tax reallocation begins. Benefits go live.</p>
         </div>
       </div>
     </section>
 
-    <section id="video" class="bg-white py-12">
+    <section id="video" class="bg-gray-100 py-16">
       <div class="max-w-5xl mx-auto px-5 md:px-10">
-        <h2 class="text-2xl md:text-3xl font-bold text-custom-blue mb-6 text-center">Program Overview</h2>
-        <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg aspect-w-16 aspect-h-9 relative" style="padding-bottom: 56.25%; height: 0;">
+        <h2 class="text-3xl md:text-4xl font-black text-custom-blue mb-8 text-center">Program Overview</h2>
+        <div class="bg-black rounded-2xl overflow-hidden shadow-2xl aspect-w-16 aspect-h-9 relative" style="padding-bottom: 56.25%; height: 0;">
           <iframe 
             src="https://www.youtube.com/embed/_q2FselQpPI" 
             title="Smile Bone Benefits Explainer"
@@ -266,233 +280,155 @@
       </div>
     </section>
 
-    <section id="calculator" class="bg-custom-blue py-16">
-      <div class="max-w-3xl mx-auto px-5 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Section 125 Payroll Tax Impact Calculator</h2>
-        <p class="text-gray-200 mb-8 font-light">Enter your employee count to see your projected annual cash credit:</p>
-        
-        <div class="bg-white/10 p-8 rounded-2xl shadow-2xl border border-white/10 backdrop-blur-sm">
-          <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-            <div class="flex flex-col items-center">
-              <label for="employeeCount" class="text-sm uppercase tracking-wide text-gray-300 mb-2 font-semibold">Employees</label>
-              <input type="number" id="employeeCount" value="50" min="10" class="w-32 text-center text-4xl font-extrabold bg-white text-custom-blue rounded-lg p-3 shadow-inner focus:outline-none focus:ring-4 focus:ring-custom-yellow">
-            </div>
-            
-            <div class="hidden md:block text-4xl text-custom-yellow font-light">→</div>
-            
-            <div class="flex flex-col items-center">
-              <span class="text-sm uppercase tracking-wide text-gray-300 mb-2 font-semibold">Projected Annual Credit</span>
-              <h2 class="text-4xl md:text-5xl font-extrabold text-custom-yellow tracking-tight" id="projectedCredit">$38,650</h2>
-            </div>
-          </div>
-          <p class="text-gray-300 mt-6 text-sm font-light italic">*Calculation based on national average of $773 credit per employee.</p>
+    <section id="faq" class="max-w-4xl mx-auto px-5 md:px-10 py-16">
+      <h2 class="text-3xl md:text-5xl font-black text-center text-custom-blue mb-12">FAQ</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">Is this legal?</h3>
+          <p class="text-gray-700 leading-relaxed">Yes. Section 125 Cafeteria Plans are explicitly authorized by the Internal Revenue Code (1978). This is codified federal tax law.</p>
         </div>
-      </div>
-    </section>
-
-    <section id="faq" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-10">Frequently Asked Questions</h2>
-      
-      <div class="max-w-4xl mx-auto space-y-6">
-        
-        <div class="bg-white p-6 rounded-xl shadow-lg">
-          <h3 class="text-xl font-bold text-custom-blue mb-3">Is this legal and IRS compliant?</h3>
-          <p class="text-gray-700">Yes. Section 125 Cafeteria Plans are explicitly authorized by the Internal Revenue Code since 1978. This is codified federal tax law, not a loophole. Administered through established provider consortium: Attentive, EmployWell Plus, CP+, Vero.</p>
+        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">Does this replace my health insurance?</h3>
+          <p class="text-gray-700 leading-relaxed">No. This is a supplemental "second layer" of benefits. Your existing health, dental, and vision plans remain completely unchanged.</p>
         </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-lg">
-          <h3 class="text-xl font-bold text-custom-blue mb-3">How does the employer receive a payroll credit without paying anything?</h3>
-          <p class="text-gray-700 mb-3">The employer's payroll credit comes from FICA tax savings (7.65%) on the amount employees reallocate through Section 125. Money the employer would have paid in payroll taxes is retained as a direct credit.</p>
-          <p class="text-gray-700"><strong>Example:</strong> Employee reallocates $10,000 annually → Employer saves $765 in FICA. Across 50 employees = $38,250 annual payroll credit.</p>
+        <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">How is there a payroll credit?</h3>
+          <p class="text-gray-700 leading-relaxed">The credit comes from FICA tax savings (7.65%) on the pre-tax funds. You save money that you would have otherwise paid to the IRS in payroll taxes.</p>
         </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-lg">
-          <h3 class="text-xl font-bold text-custom-blue mb-3">What mental health benefits do employees receive?</h3>
-          <ul class="list-disc list-inside text-gray-700 space-y-2">
-            <li>6 personal therapy sessions per year ($0 copay)</li>
-            <li>4 couples therapy sessions per year ($0 copay)</li>
-            <li>Mayo Clinic mental health programs</li>
-            <li>Addiction recovery programs</li>
-            <li>Wellness portal (meditation, yoga, nutrition)</li>
-            <li>Identity protection for employee + family</li>
-          </ul>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-lg">
-          <h3 class="text-xl font-bold text-custom-blue mb-3">Does this replace our existing health insurance?</h3>
-          <p class="text-gray-700">No. This is a supplemental "second layer" of mental health benefits that operates independently of existing benefit packages. Your current health insurance, dental, vision, and other benefits remain completely unchanged.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-lg">
-          <h3 class="text-xl font-bold text-custom-blue mb-3">What does onboarding look like?</h3>
-          <p class="text-gray-700 mb-3">Completely seamless. We handle everything:</p>
-          <ul class="list-disc list-inside text-gray-700 space-y-2 mb-3">
-            <li>Payroll system integration (no disruption)</li>
-            <li>Employee education sessions</li>
-            <li>All enrollment and compliance paperwork</li>
-            <li>Ongoing employee support</li>
-          </ul>
-          <p class="text-gray-700"><strong>Timeline:</strong> 2-3 weeks. Minimal HR involvement—just initial payroll coordination.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-lg">
-          <h3 class="text-xl font-bold text-custom-blue mb-3">What are the consequences of not implementing a mental health response program?</h3>
-          <p class="text-gray-700 mb-3">Organizations not addressing mental health incur measurable costs:</p>
-          <ul class="list-disc list-inside text-gray-700 space-y-2 mb-3">
-            <li>$1,488 per employee annually in lost productivity, absenteeism, and turnover</li>
-            <li>$3,999 per non-managerial employee annually from burnout and disengagement</li>
-            <li>40% of employee turnover driven by workplace stress</li>
-            <li>12 additional unplanned absence days per year for employees with poor mental health</li>
-          </ul>
-          <p class="text-gray-700">Mental health issues contribute to $282 billion in annual U.S. economic loss. IRS Section 125 provides a funding mechanism to address these costs through payroll tax reallocation rather than new employer expenditure.</p>
-        </div>
-
       </div>
     </section>
 
     <section id="contact" class="max-w-7xl mx-auto px-5 md:px-10 py-16">
-      <div class="bg-custom-blue text-white p-8 md:p-12 rounded-3xl shadow-xl">
-        <h2 class="text-2xl md:text-4xl font-bold text-center mb-2">Request Tax Impact Analysis</h2>
-        <p class="text-lg text-center mb-8">No cost. No obligation. Consult with your tax advisor.</p>
+      <div class="bg-custom-blue text-white p-10 md:p-16 rounded-3xl shadow-2xl">
+        <h2 class="text-3xl md:text-5xl font-black text-center mb-4">Request Analysis</h2>
+        <p class="text-xl text-center mb-12 text-gray-300">No cost. No obligation. Consult with your tax advisor.</p>
 
-        <form id="contactForm" class="max-w-xl mx-auto space-y-6" aria-labelledby="contactHeading">
-          <span id="contactHeading" class="visually-hidden">Contact form</span>
-
+        <form id="contactForm" class="max-w-xl mx-auto space-y-6">
           <label class="block">
-            <span class="block text-gray-200 font-medium mb-2">Company Name</span>
-            <input type="text" name="companyName" class="w-full p-3 rounded-lg shadow-inner text-black" required>
+            <span class="block text-gray-300 font-bold mb-2 uppercase text-sm">Company Name</span>
+            <input type="text" name="companyName" class="w-full p-4 rounded-xl text-gray-900 font-bold focus:outline-none focus:ring-4 focus:ring-custom-yellow" required>
           </label>
-
           <label class="block">
-            <span class="block text-gray-200 font-medium mb-2">W-2 Employee Count</span>
-            <input type="number" name="teamSize" min="10" class="w-full p-3 rounded-lg shadow-inner text-black" required>
+            <span class="block text-gray-300 font-bold mb-2 uppercase text-sm">W-2 Employee Count</span>
+            <input type="number" name="teamSize" min="5" class="w-full p-4 rounded-xl text-gray-900 font-bold focus:outline-none focus:ring-4 focus:ring-custom-yellow" required>
           </label>
-
           <label class="block">
-            <span class="block text-gray-200 font-medium mb-2">Work Email</span>
-            <input type="email" name="email" class="w-full p-3 rounded-lg shadow-inner text-black" required>
+            <span class="block text-gray-300 font-bold mb-2 uppercase text-sm">Email</span>
+            <input type="email" name="email" class="w-full p-4 rounded-xl text-gray-900 font-bold focus:outline-none focus:ring-4 focus:ring-custom-yellow" required>
           </label>
-
-          <label class="block">
-            <span class="block text-gray-200 font-medium mb-2">Phone</span>
-            <input type="tel" name="phone" class="w-full p-3 rounded-lg shadow-inner text-black" required>
-          </label>
-
-          <button type="submit" class="w-full bg-custom-yellow text-custom-blue text-lg font-bold py-4 rounded-full shadow hover:brightness-95">Submit for Analysis</button>
+          <button type="submit" class="w-full bg-custom-yellow text-custom-blue text-xl font-black py-5 rounded-full shadow-lg hover:brightness-110 transition-all mt-4">Submit</button>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="bg-gray-100 text-gray-600 text-sm py-8">
-    <div class="max-w-7xl mx-auto px-5">
-      <div class="text-center space-y-4">
-        <p class="font-semibold text-gray-800">SmileBone Benefits</p>
-        <p class="max-w-3xl mx-auto">SmileBone Benefits administers IRS Section 125 compliant cafeteria plans. Tax savings vary by payroll structure. Consult your tax advisor for organization-specific impact. Administered by: Attentive, EmployWell Plus, CP+, Vero.</p>
-        <p>© 2025 Smile Bone Benefits. All rights reserved.</p>
-        <p>
-          <a href="/privacy.html" class="hover:underline">Privacy Policy</a>
-          |
-          <a href="/terms.html" class="hover:underline">Terms of Service</a>
-        </p>
-      </div>
+  <footer class="bg-gray-100 text-gray-600 text-sm py-10 text-center">
+    <div class="max-w-3xl mx-auto px-5 space-y-4">
+      <p class="font-bold text-custom-blue text-lg">SmileBone Benefits</p>
+      <p>Administered by: Attentive, EmployWell Plus, CP+, Vero.</p>
+      <p>© 2025 Smile Bone Benefits. All rights reserved.</p>
     </div>
   </footer>
 
-  <div id="backdrop" class="modal-backdrop" data-open="false" tabindex="-1" aria-hidden="true"></div>
-  <section id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+  <div id="backdrop" class="modal-backdrop"></div>
+  <section id="modal" class="modal">
     <div class="min-h-full flex items-center justify-center p-4">
-      <div class="bg-white w-full max-w-md p-6 rounded-2xl shadow-xl">
-        <h2 id="modalTitle" class="text-xl font-bold mb-2">Thank you</h2>
-        <p id="modalDesc" class="text-gray-700 mb-6">We received your request. We will contact you within 24-48 hours.</p>
-        <div class="flex justify-end gap-3">
-          <button id="closeBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-900">Close</button>
-        </div>
+      <div class="bg-white w-full max-w-md p-8 rounded-3xl shadow-2xl text-center">
+        <h2 class="text-2xl font-black text-custom-blue mb-4">Received!</h2>
+        <p class="text-gray-600 mb-8">We will contact you within 24 hours.</p>
+        <button id="closeBtn" class="bg-gray-200 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-gray-300">Close</button>
       </div>
     </div>
   </section>
 
   <script>
-    /* ----------------------------------------------------------------
-       MOBILE MENU LOGIC
-    ---------------------------------------------------------------- */
+    // 1. Mobile Menu
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const iconOpen = document.getElementById('iconOpen');
     const iconClose = document.getElementById('iconClose');
     
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.contains('hidden');
-        if (isHidden) {
-          // Open menu
-          mobileMenu.classList.remove('hidden');
-          menuBtn.setAttribute('aria-expanded', 'true');
-          iconOpen.classList.add('hidden');
-          iconClose.classList.remove('hidden');
-        } else {
-          // Close menu
-          mobileMenu.classList.add('hidden');
-          menuBtn.setAttribute('aria-expanded', 'false');
-          iconOpen.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        }
-      });
-    }
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
 
-    /* ----------------------------------------------------------------
-       MODAL & FORM LOGIC
-    ---------------------------------------------------------------- */
+    // 2. Modal
     const modal = document.getElementById('modal');
     const backdrop = document.getElementById('backdrop');
     const closeBtn = document.getElementById('closeBtn');
     const form = document.getElementById('contactForm');
-    let lastFocus = null;
 
-    function openModal() {
-      if (!modal || !backdrop) return;
-      lastFocus = document.activeElement;
-      modal.setAttribute('aria-hidden','false');
-      backdrop.dataset.open = 'true';
-      closeBtn?.focus();
-      document.addEventListener('keydown', onKeydown);
+    function toggleModal(show) {
+      const display = show ? 'block' : 'none';
+      modal.style.display = display;
+      backdrop.style.display = display;
     }
 
-    function closeModal() {
-      if (!modal || !backdrop) return;
-      modal.setAttribute('aria-hidden','true');
-      backdrop.dataset.open = 'false';
-      document.removeEventListener('keydown', onKeydown);
-      if (lastFocus) lastFocus.focus();
-    }
-
-    function onKeydown(e){
-      if (e.key === 'Escape') closeModal();
-    }
-
-    backdrop?.addEventListener('click', closeModal);
-    closeBtn?.addEventListener('click', closeModal);
-
+    closeBtn?.addEventListener('click', () => toggleModal(false));
+    backdrop?.addEventListener('click', () => toggleModal(false));
     form?.addEventListener('submit', (e) => {
       e.preventDefault();
-      // In a real app, you would send data to a server here.
-      openModal();
+      toggleModal(true);
       form.reset();
     });
 
-    /* ----------------------------------------------------------------
-       CALCULATOR LOGIC
-    ---------------------------------------------------------------- */
-    const employeeCountInput = document.getElementById('employeeCount');
-    const projectedCreditEl = document.getElementById('projectedCredit');
-    const annualCreditPerEmployee = 773; // Matching the hero section claim
+    // 3. Calculator & Charts
+    const empInput = document.getElementById('employeeCount');
+    const creditDisplay = document.getElementById('projectedCredit');
+    const creditPerEmp = 773;
 
-    function updateProjectedCredit() {
-      if (!employeeCountInput || !projectedCreditEl) return;
-      
-      let count = parseInt(employeeCountInput.value, 10);
-      
-      // Enforce minimum of 10 if user types lower (optional, but good for consistency)
-      // or just handle NaNs
-      if
+    // Charts Config
+    Chart.defaults.font.family = 'Inter';
+    Chart.defaults.color = '#4b5563';
+    
+    // Doughnut
+    const ctxBenefits = document.getElementById('benefitsChart').getContext('2d');
+    const benefitsChart = new Chart(ctxBenefits, {
+      type: 'doughnut',
+      data: {
+        labels: ['Mental Health', 'Employee Cash', 'Employer Savings'],
+        datasets: [{
+          data: [90, 10, 7.65],
+          backgroundColor: ['#003366', '#FFC72C', '#10B981'],
+          borderWidth: 0
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, cutout: '65%', plugins: { legend: { position: 'bottom' } } }
+    });
+
+    // Bar Chart
+    const ctxImpact = document.getElementById('impactChart').getContext('2d');
+    const impactChart = new Chart(ctxImpact, {
+      type: 'bar',
+      data: {
+        labels: ['10 Emp', '50 Emp', '100 Emp', '250 Emp'],
+        datasets: [{
+          label: 'Annual Credit',
+          data: [7730, 38650, 77300, 193250],
+          backgroundColor: '#003366',
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { callback: (val) => '$' + val/1000 + 'k' } } }
+      }
+    });
+
+    // Update Logic
+    empInput?.addEventListener('input', (e) => {
+      const count = parseInt(e.target.value) || 0;
+      const total = count * creditPerEmp;
+      creditDisplay.innerText = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(total);
+    });
+  </script>
+</body>
+</html>
+
+     
+
         
