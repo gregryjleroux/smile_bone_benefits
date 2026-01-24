@@ -1,165 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>SmileBone Benefits - IRS Section 125 Tax Strategy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="IRS Section 125 compliant payroll tax strategy converting employer FICA obligations into funded mental health benefits.">
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <style>
-    :root { --sb-blue: #003366; --sb-yellow: #FFC72C; }
-    
-    /* GLOBAL FONT OVERRIDE: ARIAL (Professional Standard) */
-    body, h1, h2, h3, p, a, button, input, li, div, span { 
-      font-family: Arial, Helvetica, sans-serif !important; 
-    }
-
-    /* Custom Colors */
-    .bg-custom-blue { background-color: var(--sb-blue); }
-    .text-custom-blue { color: var(--sb-blue); }
-    .text-custom-yellow { color: var(--sb-yellow); }
-    .bg-custom-yellow { background-color: var(--sb-yellow); }
-    
-    /* Video Wrapper (16:9) */
-    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-    /* Chart Containers */
-    .chart-wrapper { position: relative; height: 300px; width: 100%; }
-
-    /* Input Cleanup */
-    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-    input[type=number] { -moz-appearance: textfield; }
-  </style>
-  <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="1iH8HFLdWXBT0l65q" data-version="062024"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employ Well Benefits | The Win-Win for Your Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A1A2E;
+            background-attachment: fixed;
+            color: #F0F0F0;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 100%;
+            max-width: 450px;
+            max-height: 450px;
+        }
+        .chart-container-bar {
+            position: relative;
+            margin: auto;
+            height: 50vh;
+            width: 100%;
+            max-width: 800px;
+            max-height: 500px;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #BC5090, #FF764A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: #2B2B48;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #F0F0F0;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+        .flow-step {
+            position: relative;
+            background-color: #2B2B48;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            color: #F0F0F0;
+        }
+        .flow-step:hover {
+            transform: translateY(-5px);
+        }
+        .flow-step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        /* Removes spinner arrows from number input */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 text-base leading-relaxed">
+<body class="bg-[#1A1A2E] text-[#F0F0F0]">
 
-  <header class="bg-custom-blue text-white sticky top-0 z-30 shadow-md">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="text-2xl font-bold tracking-tight hover:opacity-90">SmileBone<span class="text-custom-yellow">Benefits</span></a>
-      
-      <nav class="hidden md:flex items-center gap-8 text-base font-bold">
-        <a href="#crisis" class="hover:text-custom-yellow transition-colors">Crisis Data</a>
-        <a href="#calculator" class="hover:text-custom-yellow transition-colors">Calculator</a>
-        <a href="#faq" class="hover:text-custom-yellow transition-colors">FAQ</a>
-        <a href="#contact" class="bg-custom-yellow text-custom-blue px-6 py-2 rounded-full hover:bg-white transition-colors">Contact</a>
-      </nav>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
 
-      <button id="menuBtn" class="md:hidden text-white hover:text-custom-yellow focus:outline-none">
-        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    
-    <div id="mobileMenu" class="hidden bg-custom-blue border-t border-white/10 p-6 text-center space-y-6">
-      <a href="#crisis" class="block text-white text-xl font-bold">Crisis Data</a>
-      <a href="#calculator" class="block text-white text-xl font-bold">Calculator</a>
-      <a href="#contact" class="block text-custom-yellow text-xl font-bold">Contact Us</a>
-    </div>
-  </header>
+        <header class="text-center mb-16 md:mb-24">
+            <h1 class="text-4xl md:text-6xl font-black gradient-text tracking-tight mb-4">The Ultimate Win-Win</h1>
+            <p class="text-lg md:text-xl font-semibold text-gray-300 max-w-3xl mx-auto">Discover how you can give your employees a premium benefits upgrade while putting significant cash back into your business.</p>
+        </header>
 
-  <main>
+        <section id="hook" class="mb-16 md:mb-24">
+            <div class="card text-center py-12">
+                 <p class="text-xl text-gray-300 mb-8 font-light">Enter your W-2 employee count:</p>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+                    <div class="relative group">
+                        <input type="number" id="employeeCount" value="50" min="5" 
+                            class="w-40 bg-transparent text-center text-6xl font-black text-white border-b-4 border-[#BC5090] focus:border-[#FF764A] focus:outline-none py-2 transition-all"
+                            oninput="calculateCredit()">
+                        <p class="text-xs text-gray-500 mt-3 uppercase tracking-widest font-bold group-hover:text-[#BC5090] transition-colors">Employees</p>
+                    </div>
 
-    <section class="max-w-7xl mx-auto px-6 py-20 text-center">
-      <span class="bg-blue-100 text-custom-blue py-1 px-4 rounded-full text-sm font-bold uppercase tracking-wider mb-6 inline-block">IRS Section 125 Compliant • Est. 1978</span>
-      <h1 class="text-4xl md:text-6xl font-bold text-custom-blue mb-6 leading-tight">Mental Health Crisis Response Program</h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium">$282 billion annual workforce productivity loss. IRS Section 125 provides the funding mechanism through payroll tax reallocation.</p>
-      
-      <a href="#contact" class="inline-block bg-custom-yellow text-custom-blue text-xl font-bold px-10 py-5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-transform">Request Tax Impact Analysis</a>
-      
-      <div class="mt-16 grid md:grid-cols-3 gap-6 text-left">
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-custom-blue">
-          <div class="text-5xl font-bold text-custom-blue">$773</div>
-          <div class="text-sm font-bold text-gray-500 mt-2 uppercase">Avg. Annual Credit Per Employee</div>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-custom-yellow">
-          <div class="text-5xl font-bold text-custom-blue">89%</div>
-          <div class="text-sm font-bold text-gray-500 mt-2 uppercase">Retention Rate (Avg: 71%)</div>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
-          <div class="text-5xl font-bold text-custom-blue">23%</div>
-          <div class="text-sm font-bold text-gray-500 mt-2 uppercase">Reduction in Health Claims</div>
-        </div>
-      </div>
-    </section>
+                    <div class="hidden md:block text-5xl text-gray-600 font-thin">→</div>
 
-    <section id="crisis" class="bg-white py-20">
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-12">The Cost of Inaction</h2>
+                    <div>
+                        <h2 class="text-6xl font-black gradient-text tracking-tighter" id="projectedCredit">$35,000</h2>
+                        <p class="text-xs text-gray-500 mt-3 uppercase tracking-widest font-bold">Annual Tax Credit</p>
+                    </div>
+                </div>
+                
+                <p class="text-sm text-gray-400 font-thin max-w-md mx-auto">
+                    *Estimated savings of $700 per participating employee.
+                </p>
+            </div>
+        </section>
+
+        <section id="dual-benefit" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">A Powerful Boost for Everyone</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">Our program is designed to create tangible value for both your company's bottom line and your employees' well-being.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card border-l-8 border-[#BC5090]">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">💰</span>
+                        <h3 class="text-2xl font-bold text-[#BC5090]">The Financial Win</h3>
+                    </div>
+                    <p class="text-gray-300 font-thin">By leveraging the Section 125 program, your business receives an average payroll tax credit of **$700 per employee, per year**. This isn't a cost reduction; it's a direct cash injection back into your business.</p>
+                </div>
+                <div class="card border-l-8 border-[#FF764A]">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-4">❤️</span>
+                        <h3 class="text-2xl font-bold text-[#FF764A]">The Cultural Win</h3>
+                    </div>
+                    <p class="text-gray-300 font-thin">Elevate your company culture and show your team they're valued. Employees get a premium suite of wellness benefits and a **$40-$50 boost on each paycheck**, improving morale and retention at no cost to them.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="employee-value" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">The Complete Wellness Package</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">We provide a robust, multi-faceted benefits package that complements your existing healthcare, focusing on total well-being.</p>
+            </div>
+            <div class="card">
+                <div class="chart-container">
+                    <canvas id="employeeBenefitsChart"></canvas>
+                </div>
+            </div>
+        </section>
         
-        <div class="grid md:grid-cols-3 gap-8 text-center mb-16">
-          <div>
-            <div class="text-6xl font-bold text-custom-blue mb-2">76%</div>
-            <p class="text-lg font-bold text-gray-600">Workers reporting mental health symptoms</p>
-          </div>
-          <div>
-            <div class="text-6xl font-bold text-custom-blue mb-2">40%</div>
-            <p class="text-lg font-bold text-gray-600">Turnover directly related to stress</p>
-          </div>
-          <div>
-            <div class="text-6xl font-bold text-custom-blue mb-2">12</div>
-            <p class="text-lg font-bold text-gray-600">Unplanned absence days per year</p>
-          </div>
-        </div>
-
-        <div class="bg-gray-50 p-10 rounded-2xl border border-gray-200 max-w-4xl mx-auto">
-          <h3 class="text-2xl font-bold text-custom-blue mb-8 text-center">Annual Employer Cost Per Employee</h3>
-          <div class="grid md:grid-cols-2 gap-10 text-center">
-            <div>
-              <p class="text-gray-500 text-sm font-bold uppercase mb-2">Lost productivity & absenteeism</p>
-              <p class="text-4xl font-bold text-custom-blue">$1,488</p>
+        <section id="ai-strategy" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">✨ Boost Your Culture with AI</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">Tell us about a workplace challenge, and our AI will suggest how Employ Well Benefits can provide a strategic solution.</p>
             </div>
-            <div>
-              <p class="text-gray-500 text-sm font-bold uppercase mb-2">Burnout & Disengagement</p>
-              <p class="text-4xl font-bold text-custom-blue">$3,999</p>
+            <div class="card max-w-3xl mx-auto">
+                <textarea id="challengeInput" rows="4" class="w-full p-4 border border-gray-300 bg-[#3A3A55] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#BC5090]" placeholder="e.g., 'We're experiencing high employee turnover' or 'Our team needs better stress management tools.'"></textarea>
+                <button id="generateStrategyBtn" class="w-full mt-4 bg-gradient-to-r from-[#BC5090] to-[#FF764A] text-white font-bold py-3 px-6 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">
+                    ✨ Generate Strategy
+                </button>
+                <div id="strategyOutput" class="mt-8 p-4 bg-[#3A3A55] rounded-lg hidden">
+                    <p class="text-white font-thin" id="strategyText"></p>
+                </div>
+                <div id="loadingIndicator" class="mt-8 text-center hidden">
+                    <div class="animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#BC5090] rounded-full" role="status">
+                        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                    </div>
+                </div>
+                <div id="error-message" class="mt-4 text-[#FF764A] text-center hidden">Please enter a workplace challenge.</div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="tax-code" class="bg-custom-blue py-20 text-white">
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">IRS Tax Code Foundation</h2>
-        <p class="text-center text-gray-300 max-w-3xl mx-auto mb-12 text-lg">This program operates under established IRS authority. Codified federal tax law, not a loophole.</p>
+        <section id="financial-impact" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Your Financial Return Scales With You</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">The more employees you have, the greater the financial benefit to your business. See how your annual cash credit grows.</p>
+            </div>
+            <div class="card">
+                <div class="chart-container-bar">
+                    <canvas id="financialImpactChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="mechanism" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">How Is This Possible?</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto font-thin">It's a simple, proven process powered by the Section 125 Tax Benefit Program. We handle everything.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <div class="flow-step">
+                    <span class="flow-step-icon text-[#BC5090]">1</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#BC5090]">Agree</h3>
+                    <p class="text-gray-300 font-thin">You agree to offer the no-cost benefits package.</p>
+                </div>
+                <div class="flow-step">
+                    <span class="flow-step-icon text-[#FF764A]">2</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#FF764A]">Enroll</h3>
+                    <p class="text-gray-300 font-thin">We enroll your employees and activate their new benefits & payroll bump.</p>
+                </div>
+                <div class="flow-step">
+                    <span class="flow-step-icon text-[#BC5090]">3</span>
+                    <h3 class="text-xl font-bold mb-2 text-[#BC5090]">Receive</h3>
+                    <p class="text-gray-300 font-thin">Your business receives a significant payroll tax credit.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer id="cta" class="text-center">
+            <div class="card max-w-3xl mx-auto mb-4">
+                <h2 class="text-3xl font-bold text-white mb-4">Ready for your Win-Win?</h2>
+                <p class="text-lg text-white mb-8 font-thin">Let's schedule a brief, no-obligation call to calculate your exact financial credit and answer any questions you have.</p>
+                <button id="customQuoteBtn" class="w-full inline-block bg-gradient-to-r from-[#BC5090] to-[#FF764A] text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all">Get Your Custom Quote</button>
+            </div>
+            <div class="card max-w-3xl mx-auto text-sm text-gray-400 p-4 font-thin">
+                <p>Employ Well Benefits is an independent sales partner and is not affiliated with the corporate brand, Employ Well Now. All inquiries and client support are handled directly by our team. Please direct any questions or scheduling to the contact information provided on this page.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Helper function for wrapping text in chart labels
+        function wrapText(str, maxWidth) {
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
+
+            words.forEach(word => {
+                if (currentLine.length + word.length + 1 < maxWidth) {
+                    currentLine += (currentLine.length > 0 ? ' ' : '') + word;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = word;
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Tooltip title callback for charts
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            return Array.isArray(label) ? label.join(' ') : label;
+        };
         
-        <div class="grid md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
-            <div class="bg-white/10 p-8 rounded-xl border border-white/10">
-                <h3 class="text-2xl font-bold text-custom-yellow mb-2">Section 125</h3>
-                <p class="text-base">Cafeteria Plan authority allowing for pre-tax premium deductions.</p>
-            </div>
-            <div class="bg-white/10 p-8 rounded-xl border border-white/10">
-                <h3 class="text-2xl font-bold text-custom-yellow mb-2">Section 105</h3>
-                <p class="text-base">Self-Insured Medical Reimbursement Plan (SIMRP) guidelines.</p>
-            </div>
-        </div>
+        // Color palette for charts
+        const customPalette = {
+            magenta: '#BC5090',
+            orange: '#FF764A',
+            deepBlue: '#374C80',
+            yellow: '#FFA600'
+        };
 
-        <div class="bg-white text-custom-blue p-10 rounded-2xl shadow-xl max-w-5xl mx-auto">
-          <h3 class="text-3xl font-bold mb-8 text-center">How The Money Flows</h3>
-          <div class="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <span class="text-5xl font-bold block mb-2">90%</span>
-              <span class="font-bold block text-lg">Allocated to Benefits</span>
-            </div>
-            <div>
-              <span class="text-5xl font-bold block mb-2">10%</span>
-              <span class="font-bold block text-lg">Employee Paycheck</span>
-            </div>
-            <div>
-              <span class="text-5xl font-bold block mb-2">7.65%</span>
-              <span class="font-bold block text-lg">Employer Savings</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        // Employee Benefits Doughnut Chart
+        const employeeBenefitsCtx = document.getElementById('employeeBenefitsChart').getContext('2d');
+        new Chart(employeeBenefitsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Mental Health Support', 'Holistic Wellness Portal', 'Identity & Mayo Clinic Programs', 'Direct Financial Boost'],
+                datasets: [{
+                    label: 'Employee Benefits',
+                    data: [30, 25, 25, 20],
+                    backgroundColor: [
+                        customPalette.magenta,
+                        customPalette.orange,
+                        customPalette.deepBlue,
+                        customPalette.yellow
+                    ],
+                    borderColor: '#2B2B48', /* Adjusted border color to match the new card background */
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 14,
+                                family: 'Inter'
+                            },
+                            color: '#F0F0F0' /* Lightened legend labels for dark background */
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        },
+                        backgroundColor: 'rgba(0,0,0,0.8)', /* Darker tooltip for contrast */
+                        titleFont: { size: 16, weight: 'bold' },
+                        bodyFont: { size: 14 },
+                        padding: 12,
+                        cornerRadius: 6
+                    }
+                }
+            }
+        });
 
-    <section id="calculator" class="bg-gray-50 py-20">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold text-custom-blue mb-6 text-center">Payroll Tax Impact Calculator</h2>
-        <p class="text-center text-gray-600 mb-12 text-lg">Estimate your annual FICA savings instantly.</p>
+        // Financial Impact Bar Chart
+        const financialImpactCtx = document.getElementById('financialImpactChart').getContext('2d');
+        const financialLabels = ['10 Employees', '25 Employees', '50 Employees', '100 Employees', '250 Employees'];
+        const financialData = [7000, 17500, 35000, 70000, 175000];
+        
+        new Chart(financialImpactCtx, {
+            type: 'bar',
+            data: {
+                labels: financialLabels.map(label => wrapText(label, 16)),
+                datasets: [{
+                    label: 'Annual Cash Credit ($)',
+                    data: financialData,
+                    backgroundColor: customPalette.magenta,
+                    borderColor: '#2B2B48', /* Adjusted border color to match the new card background */
+                    borderWidth: 2,
+                    borderRadius: 6,
+                    hoverBackgroundColor: customPalette.orange
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + (value / 1000) + 'k';
+                            },
+                            color: '#F0F0F0', /* Lightened Y-axis labels for dark background */
+                            font: { size: 12 }
+                        },
+                        grid: {
+                            color: 'rgba(255,255,255,0.1)' /* Lightened grid lines for dark background */
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#F0F0F0', /* Lightened X-axis labels for dark background */
+                            font: { size: 12 }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(context.parsed.y);
+                                }
+                                return label;
+                            }
+                        },
+                        backgroundColor: 'rgba(0,0,0,0.8)', /* Darker tooltip for contrast */
+                        titleFont: { size: 16, weight: 'bold' },
+                        bodyFont: { size: 14 },
+                        padding: 12,
+                        cornerRadius: 6
+                    }
+                }
+            }
+        });
 
-        <div class="bg-white rounded-2xl p-10 shadow-lg border border-gray-200 mb-16 flex flex-col md:flex-row items-center justify-center gap-12
+        // --- FIXED CALCULATOR LOGIC START ---
+        function calculateCredit() {
+            const input = document.getElementById('employeeCount');
+            const display = document.getElementById('projectedCredit');
+            
+            // Get value (default to 0 if empty)
+            let count = parseInt(input.value) || 0;
+            
+            // Math: Count * $700
+            const credit = count * 700;
+            
+            // Format to Currency ($35,000)
+            display.innerText = new Intl.NumberFormat('en-US', { 
+                style: 'currency', 
+                currency: 'USD', 
+                maximumFractionDigits: 0 
+            }).format(credit);
+        }
+
+        // Run once on load so it doesn't show $0
+        document.addEventListener('DOMContentLoaded', calculateCredit);
+        // --- FIXED CALCULATOR LOGIC END ---
+
+        // Gemini API Logic
+        const challengeInput = document.getElementById('challengeInput');
+        const generateStrategyBtn = document.getElementById('generateStrategyBtn');
+        const strategyOutput = document.getElementById('strategyOutput');
+        const strategyText = document.getElementById('strategyText');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const errorMessage = document.getElementById('error-message');
+
+        const callGeminiAPI = async (prompt) => {
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            
+            const result = await response.json();
+            
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                return result.candidates[0].content.parts[0].text;
+            } else {
+                console.error("API response structure is unexpected:", result);
+                return "Sorry, I couldn't generate a strategy at this time. Please try again.";
+            }
+        };
+
+        generateStrategyBtn.addEventListener('click', async () => {
+            const userChallenge = challengeInput.value.trim();
+            if (!userChallenge) {
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => errorMessage.classList.add('hidden'), 3000);
+                return;
+            }
+            errorMessage.classList.add('hidden');
+
+            const benefits = [
+                'Mental health benefits (6 free personal therapy sessions/yr, 4 free couple therapy sessions/yr)',
+                'A holistic portal (breathwork, meditations, yoga routines, healthy recipes, mindset & self-improvement techniques)',
+                'Identity Protection Program for the employee and their family members',
+                'Addiction recovery programs',
+                'Additional programs with the Mayo Clinic'
+            ];
+
+            const prompt = `You are a strategic advisor for business owners. A business owner is considering a new benefits package called Employ Well Benefits. This package includes: ${benefits.join(', ')}. The owner's current workplace challenge is: "${userChallenge}". Please provide a brief, strategic response (2-3 paragraphs) explaining how the Employ Well Benefits program can directly address and solve this specific challenge, focusing on the leverage points for a business owner like improving culture, retention, and productivity. Do not mention the financial aspect.`;
+
+            loadingIndicator.classList.remove('hidden');
+            strategyOutput.classList.add('hidden');
+            strategyText.textContent = '';
+
+            try {
+                const strategy = await callGeminiAPI(prompt);
+                strategyText.textContent = strategy;
+                strategyOutput.classList.remove('hidden');
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                strategyText.textContent = "There was an error generating the strategy. Please try again later.";
+                strategyOutput.classList.remove('hidden');
+            } finally {
+                loadingIndicator.classList.add('hidden');
+            }
+        });
+
+        // CTA button logic
+        const customQuoteBtn = document.getElementById('customQuoteBtn');
+        customQuoteBtn.addEventListener('click', () => {
+            window.open('https://calendly.com/gregryleroux/consult', '_blank');
+        });
+    </script>
+</body>
+</html>
