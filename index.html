@@ -1,209 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smile Bone Benefits</title>
-    <!-- Tailwind CSS CDN for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .bg-custom-blue {
-            background-color: #003366; /* EmployWell Now's brand color */
-        }
-        .text-custom-yellow {
-            color: #FFC72C;
-        }
-        /* Style for the custom message box */
-        .message-box {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            display: none; /* Hidden by default */
-            text-align: center;
-        }
-        /* Enhanced logo styling */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-image {
-            height: 40px;
-            width: auto;
-        }
-        @media (max-width: 768px) {
-            .logo-image {
-                height: 32px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmileBone Benefits - Boost Your Business & Empower Your Employees</title>
+  <meta name="description" content="Enhance your team's benefits at no cost to your business. We turn payroll taxes into a powerful wellness program with significant tax savings.">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="SmileBone Benefits - Employee Wellness Program">
+  <meta property="og:description" content="Reduce tax liability while providing valuable health benefits to your employees.">
+  <meta property="og:type" content="website">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .bg-custom-blue { background-color: #003366; }
+    .text-custom-yellow { color: #FFC72C; }
+    .bg-custom-yellow { background-color: #FFC72C; }
+    
+    /* Modal Styles */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
+    .message-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: none;
+      text-align: center;
+      max-width: 90%;
+      width: 400px;
+    }
+    
+    /* Mobile Navigation */
+    .mobile-menu {
+      display: none;
+    }
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    /* Form Error Styles */
+    .error-message {
+      color: #ef4444;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+    .input-error {
+      border-color: #ef4444 !important;
+    }
+    
+    /* Loading State */
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    
+    /* Focus Styles for Accessibility */
+    .focus-visible:focus {
+      outline: 2px solid #FFC72C;
+      outline-offset: 2px;
+    }
+    
+    /* Image Placeholder */
+    .image-placeholder {
+      background-color: #f3f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      border-radius: 1rem;
+      color: #6b7280;
+    }
+    
+    @media (max-width: 768px) {
+      .desktop-nav { display: none; }
+      .mobile-nav { display: block; }
+    }
+    @media (min-width: 769px) {
+      .desktop-nav { display: block; }
+      .mobile-nav { display: none; }
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Custom Message Box -->
-    <div id="messageBox" class="message-box">
-        <p id="messageText" class="text-lg mb-4"></p>
-        <button onclick="closeMessageBox()" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors">
-            OK
-        </button>
+  <!-- Modal Backdrop -->
+  <div id="modalBackdrop" class="modal-backdrop" onclick="closeMessageBox()" aria-hidden="true"></div>
+
+  <!-- Custom Message Box -->
+  <div id="messageBox" class="message-box" role="dialog" aria-labelledby="messageText" aria-modal="true">
+    <p id="messageText" class="text-lg mb-4"></p>
+    <button onclick="closeMessageBox()" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors focus-visible">Close</button>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-custom-blue text-white py-6 px-6 md:py-10 md:px-12 lg:px-24 shadow-lg sticky top-0 z-50">
+    <div class="flex items-center justify-between">
+      <!-- Brand -->
+      <div class="flex items-center space-x-4">
+        <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight">
+          SmileBone<span class="text-custom-yellow">Benefits</span>
+        </h1>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav space-x-6 lg:space-x-10 text-lg lg:text-xl font-medium">
+        <a href="#about" class="hover:text-custom-yellow transition-colors focus-visible">About Us</a>
+        <a href="#how-it-works" class="hover:text-custom-yellow transition-colors focus-visible">How It Works</a>
+        <a href="#contact" class="hover:text-custom-yellow transition-colors focus-visible">Contact</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="mobile-nav text-white focus-visible" aria-label="Toggle navigation menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
+    
+    <!-- Mobile Navigation Menu -->
+    <nav id="mobileMenu" class="mobile-menu mt-4 space-y-4 text-lg font-medium">
+      <a href="#about" class="block hover:text-custom-yellow transition-colors focus-visible" onclick="closeMobileMenu()">About Us</a>
+      <a href="#how-it-works" class="block hover:text-custom-yellow transition-colors focus-visible" onclick="closeMobileMenu()">How It Works</a>
+      <a href="#contact" class="block hover:text-custom-yellow transition-colors focus-visible" onclick="closeMobileMenu()">Contact</a>
+    </nav>
+  </header>
 
-    <!-- Header Section -->
-    <header class="bg-custom-blue text-white py-4 px-6 md:px-12 flex justify-between items-center rounded-b-xl shadow-lg">
-        <div class="logo-container">
-            <!-- Simple SVG logo with brand  -->
-            <svg class="h-8 w-8 text-custom-yellow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            <img src="logo.png" alt="Smile Bone Benefits" class="logo-image">
-               
+  <main class="container mx-auto py-8 md:py-16 px-4">
+
+    <!-- Hero Section -->
+    <section id="hero" class="text-center mb-16">
+      <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-custom-blue leading-tight mb-4">
+        Boost Your Business & Empower Your Employees
+      </h2>
+      <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+        Enhance your team's benefits at no cost to your business. We turn payroll taxes into a powerful wellness program.
+      </p>
+      <a href="#contact" class="inline-block bg-custom-blue text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-transform focus-visible">Get Your Free Quote</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white p-6 md:p-8 lg:p-12 rounded-3xl shadow-xl mb-16">
+      <h3 class="text-xl md:text-2xl lg:text-4xl font-bold text-center text-custom-blue mb-8">About Our Program</h3>
+      <p class="text-base md:text-lg leading-relaxed mb-6">
+        The SmileBone Benefits program is designed to create a true win-win for your business and your employees. We help you unlock significant financial tax credits while simultaneously providing your team with a suite of valuable health and wellness benefits.
+      </p>
+      <ul class="list-disc list-inside space-y-2 text-base md:text-lg">
+        <li>Reduce your business's tax liability.</li>
+        <li>Increase employee take-home pay.</li>
+        <li>Enhance benefits without raising costs.</li>
+        <li>Improve morale and retention.</li>
+      </ul>
+    </section>
+
+    <!-- Benefits Image Section -->
+    <section id="benefits-image" class="bg-[#F3F8FB] py-12 mb-16">
+      <div class="container mx-auto max-w-5xl px-4">
+        <div id="imageContainer">
+          <img id="benefitsImage" 
+               src="assets/proof-math.png"
+               alt="Businesses and employees save using payroll tax funded wellness benefits"
+               class="w-full h-auto rounded-2xl shadow-lg"
+               loading="lazy"
+               onerror="showImagePlaceholder()">
         </div>
-        <!-- Simple navigation for a landing page -->
-        <nav class="hidden md:flex space-x-6">
-            <a href="#about" class="hover:text-custom-yellow transition-colors">About Us</a>
-            <a href="#how-it-works" class="hover:text-custom-yellow transition-colors">How It Works</a>
-            <a href="#contact" class="hover:text-custom-yellow transition-colors">Contact</a>
-        </nav>
-    </header>
+      </div>
+    </section>
 
-    <main class="container mx-auto px-4 py-8 md:py-16">
-        <!-- Hero Section -->
-        <section id="hero" class="text-center mb-16">
-            <h2 class="text-4xl md:text-6xl font-extrabold text-custom-blue leading-tight mb-4">
-                Boost Your Business & Empower Your Employees
-            </h2>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                Transform your workplace with our innovative benefits program that pays you while improving employee well-being and take-home pay.
-            </p>
-            <button onclick="showMessage('Ready to transform your workplace? Contact us to learn more about our innovative benefits program!')" class="bg-custom-blue text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-900 transition-colors shadow-lg">
-                Get Started Today
-            </button>
-        </section>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="mb-16">
+      <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-custom-blue mb-12">How It Works: A Simple 4 Step Process</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+          <h4 class="text-lg md:text-xl font-semibold mb-2 text-custom-blue">Step 1</h4>
+          <p class="text-sm md:text-base text-gray-600">Request Your Free Quote. Tell us about your team size, payroll, and benefit goals.</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+          <h4 class="text-lg md:text-xl font-semibold mb-2 text-custom-blue">Step 2</h4>
+          <p class="text-sm md:text-base text-gray-600">Review Your Custom Plan. We'll show you estimated savings and program options. No obligation.</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+          <h4 class="text-lg md:text-xl font-semibold mb-2 text-custom-blue">Step 3</h4>
+          <p class="text-sm md:text-base text-gray-600">Onboard Your Team. We handle all the setup, education, and compliance.</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+          <h4 class="text-lg md:text-xl font-semibold mb-2 text-custom-blue">Step 4</h4>
+          <p class="text-sm md:text-base text-gray-600">Start Saving. Benefits go live, your team gains, and your business saves.</p>
+        </div>
+      </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="mb-16">
-            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
-                <h3 class="text-3xl font-bold text-custom-blue mb-6 text-center">About Smile Bone Benefits</h3>
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    We've revolutionized the traditional benefits model by creating a program where employers actually get paid to provide better benefits to their employees. Our innovative approach increases employee take-home pay while reducing employer costs.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Through strategic partnerships and cutting-edge technology, we've created a win-win solution that transforms how businesses think about employee benefits.
-                </p>
-            </div>
-        </section>
+    <!-- Contact Form Section -->
+    <section id="contact" class="bg-custom-blue p-6 md:p-8 lg:p-12 rounded-3xl shadow-xl mb-16 text-white">
+      <h3 class="text-xl md:text-2xl lg:text-4xl font-bold text-center mb-8">Get Started</h3>
+      <p class="text-base md:text-lg text-center mb-8">Fill out the form below to request your free, no-obligation quote and see how much your business can save.</p>
+      <form id="contactForm" class="max-w-xl mx-auto space-y-6" novalidate>
+        <div>
+          <label for="companyName" class="block text-gray-200 font-medium mb-2">Company Name *</label>
+          <input type="text" id="companyName" name="companyName" 
+                 class="w-full p-3 rounded-lg shadow-inner text-black focus-visible" 
+                 required aria-describedby="companyNameError">
+          <div id="companyNameError" class="error-message" role="alert"></div>
+        </div>
+        <div>
+          <label for="teamSize" class="block text-gray-200 font-medium mb-2">Team Size (Approx.) *</label>
+          <input type="number" id="teamSize" name="teamSize" min="1" max="10000"
+                 class="w-full p-3 rounded-lg shadow-inner text-black focus-visible" 
+                 required aria-describedby="teamSizeError">
+          <div id="teamSizeError" class="error-message" role="alert"></div>
+        </div>
+        <div>
+          <label for="email" class="block text-gray-200 font-medium mb-2">Work Email *</label>
+          <input type="email" id="email" name="email" 
+                 class="w-full p-3 rounded-lg shadow-inner text-black focus-visible" 
+                 required aria-describedby="emailError">
+          <div id="emailError" class="error-message" role="alert"></div>
+        </div>
+        <div>
+          <label for="phone" class="block text-gray-200 font-medium mb-2">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" 
+                 class="w-full p-3 rounded-lg shadow-inner text-black focus-visible" 
+                 required aria-describedby="phoneError">
+          <div id="phoneError" class="error-message" role="alert"></div>
+        </div>
+        <button type="submit" id="submitBtn" 
+                class="w-full bg-custom-yellow text-custom-blue text-lg font-bold py-4 rounded-full shadow-lg hover:scale-105 transition-transform focus-visible">
+          <span id="submitText">Submit for Free Quote</span>
+          <span id="loadingText" style="display: none;">Submitting...</span>
+        </button>
+      </form>
+    </section>
+  </main>
 
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="mb-16">
-            <h3 class="text-3xl font-bold text-custom-blue mb-8 text-center">How It Works</h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-                    <div class="bg-custom-blue text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                        1
-                    </div>
-                    <h4 class="text-xl font-semibold text-custom-blue mb-3">Assessment</h4>
-                    <p class="text-gray-600">We analyze your current benefits structure and identify optimization opportunities.</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-                    <div class="bg-custom-blue text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                        2
-                    </div>
-                    <h4 class="text-xl font-semibold text-custom-blue mb-3">Implementation</h4>
-                    <p class="text-gray-600">We implement our innovative benefits program with minimal disruption to your operations.</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-                    <div class="bg-custom-blue text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                        3
-                    </div>
-                    <h4 class="text-xl font-semibold text-custom-blue mb-3">Results</h4>
-                    <p class="text-gray-600">You start receiving payments while your employees enjoy better benefits and higher take-home pay.</p>
-                </div>
-            </div>
-        </section>
+  <!-- Footer -->
+  <footer class="text-gray-500 text-sm text-center py-6 mt-16 rounded-t-xl shadow-inner">
+    <p>&copy; 2025 SmileBone Benefits. All Rights Reserved.</p>
+  </footer>
 
-        <!-- Benefits Section -->
-        <section class="mb-16">
-            <h3 class="text-3xl font-bold text-custom-blue mb-8 text-center">Key Benefits</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h4 class="text-2xl font-semibold text-custom-blue mb-4">For Employers</h4>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="text-custom-yellow mr-2">✓</span>
-                            Receive payments for providing benefits
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-custom-yellow mr-2">✓</span>
-                            Reduce overall benefits costs
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-custom-yellow mr-2">✓</span>
-                            Improve employee satisfaction and retention
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-custom-yellow mr-2">✓</span>
-                            Streamlined administration
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h4 class="text-2xl font-semibold text-custom-blue mb-4">For Employees</h4>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="text-custom-yellow mr-2">✓</span>
-                            Increased take-home pay
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-custom-yellow mr-2">✓</span>
-                            Better benefits coverage
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-custom-yellow mr-2">✓</span>
-                            Simplified benefits management
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-custom-yellow mr-2">✓</span>
-                            Enhanced financial wellness
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="text-center">
-            <div class="bg-custom-blue text-white rounded-xl p-8 md:p-12">
-                <h3 class="text-3xl font-bold mb-4">Ready to Transform Your Benefits?</h3>
-                <p class="text-lg mb-8 opacity-90">
-                    Join the growing number of companies that are getting paid to provide better benefits.
-                </p>
-                <button onclick="showMessage('Thank you for your interest! Our team will contact you within 24 hours to discuss how Smile Bone Benefits can transform your workplace.')" class="bg-white text-custom-blue px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-                    Contact Us Today
-                </button>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        function showMessage(message) {
-            document.getElementById('messageText').textContent = message;
-            document.getElementById('messageBox').style.display = 'block';
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+    
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.remove('active');
+    }
+    
+    // Modal Functions
+    function closeMessageBox() {
+      document.getElementById("messageBox").style.display = "none";
+      document.getElementById("modalBackdrop").style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+    
+    function showMessageBox(message) {
+      document.getElementById("messageText").innerText = message;
+      document.getElementById("messageBox").style.display = "block";
+      document.getElementById("modalBackdrop").style.display = "block";
+      document.body.style.overflow = "hidden";
+      document.getElementById("messageBox").focus();
+    }
+    
+    // Image Error Handling
+    function showImagePlaceholder() {
+      const container = document.getElementById('imageContainer');
+      container.innerHTML = `
+        <div class="image-placeholder">
+          <div class="text-center">
+            <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <p class="text-lg font-semibold">Benefits Visualization</p>
+            <p class="text-sm">See how businesses and employees save with our program</p>
+          </div>
+        </div>
+      `;
+    }
+    
+    // Form Validation
+    function validateField(field) {
+      const value = field.value.trim();
+      const errorElement = document.getElementById(field.id + 'Error');
+      let isValid = true;
+      let errorMessage = '';
+      
+      // Clear previous errors
+      field.classList.remove('input-error');
+      errorElement.style.display = 'none';
+      
+      if (!value) {
+        errorMessage = 'This field is required.';
+        isValid = false;
+      } else {
+        switch(field.type) {
+          case 'email':
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+              errorMessage = 'Please enter a valid email address.';
+              isValid = false;
+            }
+            break;
+          case 'number':
+            const num = parseInt(value);
+            if (isNaN(num) || num < 1 || num > 10000) {
+              errorMessage = 'Please enter a valid team size (1-10000).';
+              isValid = false;
+            }
+            break;
+          case 'tel':
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            const cleanPhone = value.replace(/[\s\-\(\)\.]/g, '');
+            if (!phoneRegex.test(cleanPhone) || cleanPhone.length < 10) {
+              errorMessage = 'Please enter a valid phone number.';
+              isValid = false;
+            }
+            break;
         }
-
-        function closeMessageBox() {
-            document.getElementById('messageBox').style.display = 'none';
+      }
+      
+      if (!isValid) {
+        field.classList.add('input-error');
+        errorElement.textContent = errorMessage;
+        errorElement.style.display = 'block';
+      }
+      
+      return isValid;
+    }
+    
+    // Form Submission
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const fields = form.querySelectorAll('input[required]');
+      let isFormValid = true;
+      
+      // Validate all fields
+      fields.forEach(field => {
+        if (!validateField(field)) {
+          isFormValid = false;
         }
-    </script>
+      });
+      
+      if (!isFormValid) {
+        return;
+      }
+      
+      // Show loading state
+      const submitBtn = document.getElementById('submitBtn');
+      const submitText = document.getElementById('submitText');
+      const loadingText = document.getElementById('loadingText');
+      
+      submitBtn.classList.add('loading');
+      submitText.style.display = 'none';
+      loadingText.style.display = 'inline';
+      
+      // Simulate form submission (replace with actual submission logic)
+      setTimeout(() => {
+        submitBtn.classList.remove('loading');
+        submitText.style.display = 'inline';
+        loadingText.style.display = 'none';
+        
+        showMessageBox("Thank you! We have received your request and will be in touch shortly.");
+        form.reset();
+      }, 2000);
+    }
+    
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu
+      document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+      
+      // Form submission
+      document.getElementById('contactForm').addEventListener('submit', handleFormSubmit);
+      
+      // Real-time validation
+      const formFields = document.querySelectorAll('#contactForm input[required]');
+      formFields.forEach(field => {
+        field.addEventListener('blur', () => validateField(field));
+      });
+      
+      // Keyboard navigation for modal
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          const messageBox = document.getElementById('messageBox');
+          if (messageBox.style.display === 'block') {
+            closeMessageBox();
+          }
+        }
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
 
