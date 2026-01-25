@@ -1,229 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>SmileBone Benefits</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Payroll tax funded wellness benefits that increase employee take-home pay and reduce employer costs.">
-  <meta property="og:title" content="SmileBone Benefits">
-  <meta property="og:description" content="Payroll tax funded wellness benefits that increase employee take-home pay and reduce employer costs.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/proof-math.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{--sb-blue:#003366;--sb-yellow:#FFC72C}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    .bg-custom-blue{background-color:var(--sb-blue)}
-    .text-custom-yellow{color:var(--sb-yellow)}
-    .bg-custom-yellow{background-color:var(--sb-yellow)}
-    /* Modal base + backdrop */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:40}
-    .modal{position:fixed;inset:0;display:none;z-index:50}
-    .modal[aria-hidden="false"],.modal-backdrop[data-open="true"]{display:block}
-    .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Bone Benefits</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-custom-blue {
+            background-color: #003366; /* EmployWell Now's brand color */
+        }
+        .text-custom-yellow {
+            color: #FFC72C;
+        }
+        /* Style for the custom message box */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            text-align: center;
+        }
+        /* Enhanced logo styling */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-image {
+            height: 40px;
+            width: auto;
+        }
+        @media (max-width: 768px) {
+            .logo-image {
+                height: 32px;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Header -->
-  <header class="bg-custom-blue text-white sticky top-0 z-30 shadow-lg">
-    <div class="max-w-7xl mx-auto px-5 md:px-10">
-      <div class="h-20 md:h-24 flex items-center justify-between">
-        <a href="#" class="flex items-center gap-3">
-          <span class="text-3xl md:text-4xl font-extrabold tracking-tight">SmileBone<span class="text-custom-yellow">Benefits</span></span>
-        </a>
-
-        <!-- Desktop nav -->
-        <nav class="hidden md:flex items-center gap-10 text-lg">
-          <a href="#about" class="hover:text-custom-yellow">About</a>
-          <a href="#how-it-works" class="hover:text-custom-yellow">How It Works</a>
-          <a href="#contact" class="hover:text-custom-yellow">Contact</a>
-        </nav>
-
-        <!-- Mobile menu button -->
-        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg bg-white/10 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
-          <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    <!-- Custom Message Box -->
+    <div id="messageBox" class="message-box">
+        <p id="messageText" class="text-lg mb-4"></p>
+        <button onclick="closeMessageBox()" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors">
+            OK
         </button>
-      </div>
     </div>
 
-    <!-- Mobile drawer -->
-    <div id="mobileMenu" class="md:hidden hidden bg-custom-blue/95 border-t border-white/10">
-      <nav class="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-4 text-lg">
-        <a href="#about" class="py-2 text-white hover:text-custom-yellow">About</a>
-        <a href="#how-it-works" class="py-2 text-white hover:text-custom-yellow">How It Works</a>
-        <a href="#contact" class="py-2 text-white hover:text-custom-yellow">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- Hero -->
-    <section id="hero" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-20 text-center">
-      <h1 class="text-3xl md:text-5xl font-extrabold text-custom-blue leading-tight">Boost Your Business. Empower Your Employees.</h1>
-      <p class="mt-5 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Turn payroll taxes into a wellness benefit that raises take-home pay and lowers employer costs. No new net cost to the business.</p>
-      <a href="#contact" class="mt-8 inline-block bg-custom-yellow text-custom-blue text-lg font-bold px-8 py-4 rounded-full shadow hover:brightness-95">Get a Free Quote</a>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="max-w-7xl mx-auto px-5 md:px-10">
-      <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
-        <h2 class="text-2xl md:text-4xl font-bold text-center text-custom-blue mb-6">About Our Program</h2>
-        <p class="text-lg leading-relaxed mb-6">The SmileBone Benefits program helps employers unlock savings while improving benefits. Employees keep more money. Employers reduce tax burden. Retention improves.</p>
-        <ul class="list-disc list-inside space-y-2 text-lg">
-          <li>Reduce employer payroll tax expense.</li>
-          <li>Increase employee take-home pay.</li>
-          <li>Enhance benefits without increasing spend.</li>
-          <li>Better morale and retention.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Proof image -->
-    <section id="benefits-image" class="bg-[#F3F8FB] mt-12 md:mt-16 py-10">
-      <div class="max-w-5xl mx-auto px-5">
-        <img
-          src="assets/proof-math.png"
-          alt="Illustration of employer and employee savings from payroll tax funded wellness benefits"
-          onerror="this.style.display='none'"
-          class="w-full h-auto rounded-2xl shadow-lg"
-          loading="lazy">
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section id="how-it-works" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-10">How It Works</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transition-transform">
-          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 1</h3>
-          <p class="text-gray-600">Request a free quote with team size and payroll basics.</p>
+    <!-- Header Section -->
+    <header class="bg-custom-blue text-white py-4 px-6 md:px-12 flex justify-between items-center rounded-b-xl shadow-lg">
+        <div class="logo-container">
+            <!-- Simple SVG logo with brand  -->
+            <svg class="h-8 w-8 text-custom-yellow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <img src="logo.png" alt="Smile Bone Benefits" class="logo-image">
+               
         </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transition-transform">
-          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 2</h3>
-          <p class="text-gray-600">Review a savings estimate and plan options. No obligation.</p>
-        </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transition-transform">
-          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 3</h3>
-          <p class="text-gray-600">Onboarding and education handled for your team.</p>
-        </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transition-transform">
-          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 4</h3>
-          <p class="text-gray-600">Benefits go live. Savings and retention follow.</p>
-        </div>
-      </div>
-    </section>
+        <!-- Simple navigation for a landing page -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="#about" class="hover:text-custom-yellow transition-colors">About Us</a>
+            <a href="#how-it-works" class="hover:text-custom-yellow transition-colors">How It Works</a>
+            <a href="#contact" class="hover:text-custom-yellow transition-colors">Contact</a>
+        </nav>
+    </header>
 
-    <!-- Contact -->
-    <section id="contact" class="max-w-7xl mx-auto px-5 md:px-10 pb-16">
-      <div class="bg-custom-blue text-white p-8 md:p-12 rounded-3xl shadow-xl">
-        <h2 class="text-2xl md:text-4xl font-bold text-center mb-2">Get Started</h2>
-        <p class="text-lg text-center mb-8">Request a free quote. No pressure. No obligations.</p>
+    <main class="container mx-auto px-4 py-8 md:py-16">
+        <!-- Hero Section -->
+        <section id="hero" class="text-center mb-16">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-custom-blue leading-tight mb-4">
+                Boost Your Business & Empower Your Employees
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Transform your workplace with our innovative benefits program that pays you while improving employee well-being and take-home pay.
+            </p>
+            <button onclick="showMessage('Ready to transform your workplace? Contact us to learn more about our innovative benefits program!')" class="bg-custom-blue text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-900 transition-colors shadow-lg">
+                Get Started Today
+            </button>
+        </section>
 
-        <form id="contactForm" class="max-w-xl mx-auto space-y-6" aria-labelledby="contactHeading">
-          <span id="contactHeading" class="visually-hidden">Contact form</span>
+        <!-- About Section -->
+        <section id="about" class="mb-16">
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+                <h3 class="text-3xl font-bold text-custom-blue mb-6 text-center">About Smile Bone Benefits</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    We've revolutionized the traditional benefits model by creating a program where employers actually get paid to provide better benefits to their employees. Our innovative approach increases employee take-home pay while reducing employer costs.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Through strategic partnerships and cutting-edge technology, we've created a win-win solution that transforms how businesses think about employee benefits.
+                </p>
+            </div>
+        </section>
 
-          <label class="block">
-            <span class="block text-gray-200 font-medium mb-2">Company Name</span>
-            <input type="text" name="companyName" class="w-full p-3 rounded-lg shadow-inner text-black" required>
-          </label>
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="mb-16">
+            <h3 class="text-3xl font-bold text-custom-blue mb-8 text-center">How It Works</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="bg-custom-blue text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                        1
+                    </div>
+                    <h4 class="text-xl font-semibold text-custom-blue mb-3">Assessment</h4>
+                    <p class="text-gray-600">We analyze your current benefits structure and identify optimization opportunities.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="bg-custom-blue text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                        2
+                    </div>
+                    <h4 class="text-xl font-semibold text-custom-blue mb-3">Implementation</h4>
+                    <p class="text-gray-600">We implement our innovative benefits program with minimal disruption to your operations.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="bg-custom-blue text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                        3
+                    </div>
+                    <h4 class="text-xl font-semibold text-custom-blue mb-3">Results</h4>
+                    <p class="text-gray-600">You start receiving payments while your employees enjoy better benefits and higher take-home pay.</p>
+                </div>
+            </div>
+        </section>
 
-          <label class="block">
-            <span class="block text-gray-200 font-medium mb-2">Team Size</span>
-            <input type="number" name="teamSize" min="1" class="w-full p-3 rounded-lg shadow-inner text-black" required>
-          </label>
+        <!-- Benefits Section -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold text-custom-blue mb-8 text-center">Key Benefits</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h4 class="text-2xl font-semibold text-custom-blue mb-4">For Employers</h4>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-custom-yellow mr-2">✓</span>
+                            Receive payments for providing benefits
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-custom-yellow mr-2">✓</span>
+                            Reduce overall benefits costs
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-custom-yellow mr-2">✓</span>
+                            Improve employee satisfaction and retention
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-custom-yellow mr-2">✓</span>
+                            Streamlined administration
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h4 class="text-2xl font-semibold text-custom-blue mb-4">For Employees</h4>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-custom-yellow mr-2">✓</span>
+                            Increased take-home pay
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-custom-yellow mr-2">✓</span>
+                            Better benefits coverage
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-custom-yellow mr-2">✓</span>
+                            Simplified benefits management
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-custom-yellow mr-2">✓</span>
+                            Enhanced financial wellness
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-          <label class="block">
-            <span class="block text-gray-2 00 font-medium mb-2">Work Email</span>
-            <input type="email" name="email" class="w-full p-3 rounded-lg shadow-inner text-black" required>
-          </label>
+        <!-- Contact Section -->
+        <section id="contact" class="text-center">
+            <div class="bg-custom-blue text-white rounded-xl p-8 md:p-12">
+                <h3 class="text-3xl font-bold mb-4">Ready to Transform Your Benefits?</h3>
+                <p class="text-lg mb-8 opacity-90">
+                    Join the growing number of companies that are getting paid to provide better benefits.
+                </p>
+                <button onclick="showMessage('Thank you for your interest! Our team will contact you within 24 hours to discuss how Smile Bone Benefits can transform your workplace.')" class="bg-white text-custom-blue px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                    Contact Us Today
+                </button>
+            </div>
+        </section>
+    </main>
 
-          <label class="block">
-            <span class="block text-gray-200 font-medium mb-2">Phone</span>
-            <input type="tel" name="phone" class="w-full p-3 rounded-lg shadow-inner text-black" required>
-          </label>
+    <script>
+        function showMessage(message) {
+            document.getElementById('messageText').textContent = message;
+            document.getElementById('messageBox').style.display = 'block';
+        }
 
-          <button type="submit" class="w-full bg-custom-yellow text-custom-blue text-lg font-bold py-4 rounded-full shadow hover:brightness-95">Submit for Free Quote</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="text-gray-500 text-sm text-center py-6">
-    <p>&copy; 2025 SmileBone Benefits. All rights reserved.</p>
-  </footer>
-
-  <!-- Modal + backdrop -->
-  <div id="backdrop" class="modal-backdrop" data-open="false" tabindex="-1" aria-hidden="true"></div>
-  <section id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
-    <div class="min-h-full flex items-center justify-center p-4">
-      <div class="bg-white w-full max-w-md p-6 rounded-2xl shadow-xl">
-        <h2 id="modalTitle" class="text-xl font-bold mb-2">Thank you</h2>
-        <p id="modalDesc" class="text-gray-700 mb-6">We received your request. We will contact you shortly.</p>
-        <div class="flex justify-end gap-3">
-          <button id="closeBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-900">Close</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    // Mobile nav
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const iconOpen = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
-    menuBtn?.addEventListener('click', () => {
-      const open = mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden', !open);
-      menuBtn.setAttribute('aria-expanded', String(open));
-      iconOpen.classList.toggle('hidden', !open);
-      iconClose.classList.toggle('hidden', open);
-    });
-
-    // Modal helpers
-    const modal = document.getElementById('modal');
-    const backdrop = document.getElementById('backdrop');
-    const closeBtn = document.getElementById('closeBtn');
-    let lastFocus = null;
-
-    function openModal() {
-      lastFocus = document.activeElement;
-      modal.setAttribute('aria-hidden','false');
-      backdrop.dataset.open = 'true';
-      // focus first button
-      closeBtn?.focus();
-      document.addEventListener('keydown', onKeydown);
-    }
-    function closeModal() {
-      modal.setAttribute('aria-hidden','true');
-      backdrop.dataset.open = 'false';
-      document.removeEventListener('keydown', onKeydown);
-      if (lastFocus) lastFocus.focus();
-    }
-    function onKeydown(e){
-      if (e.key === 'Escape') closeModal();
-    }
-    backdrop?.addEventListener('click', closeModal);
-    closeBtn?.addEventListener('click', closeModal);
-
-    // Form submit
-    const form = document.getElementById('contactForm');
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      openModal();
-      form.reset();
-    });
-  </script>
+        function closeMessageBox() {
+            document.getElementById('messageBox').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
+
+
 
  
     
