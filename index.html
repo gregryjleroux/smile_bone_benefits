@@ -1,141 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>SmileBone Benefits - IRS Section 125 Tax Strategy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="IRS Section 125 compliant payroll tax strategy.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Merriweather:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { navy: '#003366', yellow: '#FFC72C' },
-          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] }
+    <meta charset="utf-8">
+    <title>Smile Bone Benefits | IRS Section 125 Tax Strategy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="IRS Section 125 compliant payroll tax strategy.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { navy: '#003366', gold: '#FFC72C', slateBg: '#F8FAFC' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <style>
-    :root{--sb-blue:#003366;--sb-yellow:#FFC72C}
-    .bg-custom-blue{background-color:var(--sb-blue)}
-    .text-custom-yellow{color:var(--sb-yellow)}
-    .bg-custom-yellow{background-color:var(--sb-yellow)}
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:40}
-    .modal{position:fixed;inset:0;display:none;z-index:50}
-    .modal[aria-hidden="false"],.modal-backdrop[data-open="true"]{display:block}
-  </style>
+    </script>
+    <style>
+        :root { --sb-navy: #003366; --sb-gold: #FFC72C; }
+        .bg-custom-blue { background-color: var(--sb-navy); }
+        .bg-custom-yellow { background-color: var(--sb-gold); }
+        .text-custom-yellow { color: var(--sb-gold); }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-slateBg text-slate-900 font-sans antialiased">
 
-  <header class="bg-custom-blue text-white sticky top-0 z-30 shadow-xl border-b-4 border-custom-yellow">
-    <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
-      <a href="#" class="font-serif font-black text-2xl md:text-3xl tracking-tighter uppercase italic">
-        SmileBone <span class="text-custom-yellow">Benefits</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-8 font-bold text-sm uppercase tracking-widest">
-        <a href="#crisis" class="hover:text-custom-yellow transition">Crisis Data</a>
-        <a href="#tax-code" class="hover:text-custom-yellow transition">Tax Code</a>
-        <a href="#calculator" class="hover:text-custom-yellow transition text-custom-yellow underline decoration-2 underline-offset-8">Calculator</a>
-        <a href="#contact" class="bg-white text-custom-blue px-6 py-2 rounded-lg hover:bg-custom-yellow transition">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 text-center">
-      <div class="bg-custom-blue text-white py-2 px-6 rounded-full inline-block mb-8 shadow-lg">
-        <span class="text-xs font-black uppercase tracking-[0.2em]">IRS Section 125 Compliant Strategy</span>
-      </div>
-      <h1 class="text-4xl md:text-6xl font-serif font-black text-custom-blue leading-tight mb-8 italic">
-        Mental Health Crisis Response Program
-      </h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-        IRS Section 125 provides the legal funding mechanism to convert employer FICA obligations into premium mental health benefits.
-      </p>
-      
-      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12 text-left">
-        <div class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-custom-yellow">
-          <div class="text-4xl font-serif font-black text-custom-blue">$773</div>
-          <p class="text-xs font-bold text-gray-400 uppercase mt-2">Avg Employer Credit / Employee</p>
-        </div>
-        <div class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-custom-blue">
-          <div class="text-4xl font-serif font-black text-custom-blue">89%</div>
-          <p class="text-xs font-bold text-gray-400 uppercase mt-2">Retention Rate Improvement</p>
-        </div>
-        <div class="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-custom-blue">
-          <div class="text-4xl font-serif font-black text-custom-blue">23%</div>
-          <p class="text-xs font-bold text-gray-400 uppercase mt-2">Reduction in Health Claims</p>
-        </div>
-      </div>
-
-      <a href="#contact" class="inline-block bg-custom-yellow text-custom-blue text-lg font-black px-12 py-5 rounded-full shadow-2xl hover:scale-105 transition-all uppercase tracking-widest">
-        Request Tax Impact Analysis
-      </a>
-    </section>
-
-    <section class="bg-white py-20 border-y border-gray-100">
-      <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl font-serif font-black text-custom-blue text-center mb-12 uppercase italic">Executive Briefing</h2>
-        <div class="relative w-full aspect-video bg-navy rounded-3xl shadow-2xl overflow-hidden border-8 border-white">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/YOUR_ID_HERE?rel=0" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
-
-    <section id="calculator" class="bg-custom-blue py-24 text-white">
-      <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-4xl font-serif font-black text-center mb-4 italic">Tax Impact Calculator</h2>
-        <p class="text-center text-gray-300 mb-16 text-lg font-light">Estimate annual FICA tax recovery based on W-2 headcount.</p>
-        
-        <div class="bg-white text-navy rounded-3xl p-10 md:p-14 shadow-2xl border-b-[12px] border-custom-yellow">
-          <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <label class="block text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-4">W-2 Employee Count</label>
-              <input type="number" id="calcInput" value="50" oninput="runMath()" class="w-full p-6 bg-gray-50 border-4 border-gray-200 rounded-2xl text-5xl font-black text-custom-blue focus:border-custom-yellow outline-none transition-all">
+    <header class="bg-custom-blue text-white sticky top-0 z-30 shadow-xl border-b-4 border-custom-yellow">
+        <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+            <div class="font-serif font-black text-2xl md:text-3xl tracking-tighter uppercase">
+                Smile Bone <span class="text-custom-yellow">Benefits</span>
             </div>
-            <div class="text-center md:text-right">
-              <span class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 block mb-2">Annual Payroll Credit</span>
-              <div id="calcResult" class="text-5xl md:text-7xl font-serif font-black text-custom-blue">$38,650</div>
-            </div>
-          </div>
+            <nav class="hidden md:flex items-center gap-10 font-bold text-xs uppercase tracking-widest">
+                <a href="#crisis" class="hover:text-custom-yellow transition">Crisis Data</a>
+                <a href="#tax-code" class="hover:text-custom-yellow transition">Compliance</a>
+                <a href="#calculator" class="bg-white text-navy px-6 py-2 rounded shadow-lg hover:bg-custom-yellow transition">Calculator</a>
+            </nav>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <section id="contact" class="max-w-3xl mx-auto px-6 py-24">
-      <div class="bg-white p-10 rounded-3xl shadow-2xl border-2 border-gray-100">
-        <h2 class="text-3xl font-serif font-black text-custom-blue text-center mb-8 uppercase italic tracking-tighter">Submit for Analysis</h2>
-        <form id="contactForm" class="space-y-6">
-          <input type="text" placeholder="Company Name" class="w-full p-4 border-2 border-gray-100 rounded-xl focus:border-custom-blue outline-none" required>
-          <input type="email" placeholder="Work Email" class="w-full p-4 border-2 border-gray-100 rounded-xl focus:border-custom-blue outline-none" required>
-          <button type="submit" class="w-full bg-custom-blue text-white font-black py-5 rounded-xl uppercase tracking-widest shadow-lg hover:bg-slate-800 transition">Analyze My Tax Impact</button>
-        </form>
-      </div>
-    </section>
-  </main>
+    <main>
+        <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 text-center">
+            <div class="bg-navy text-white py-2 px-6 rounded-full inline-block mb-8 shadow-xl">
+                <span class="text-[10px] md:text-xs font-black uppercase tracking-[0.3em]">IRS Section 125 Compliant Strategy</span>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-serif font-black text-navy leading-tight mb-8 tracking-tighter">
+                Mental Health Crisis Response Program
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 font-medium">
+                IRS Section 125 provides the legal funding mechanism to convert employer FICA obligations into premium mental health benefits.
+            </p>
 
-  <script>
-    function runMath() {
-      const input = document.getElementById('calcInput').value;
-      const result = input * 773;
-      document.getElementById('calcResult').innerText = "$" + result.toLocaleString();
-    }
-    window.onload = runMath;
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16 text-left">
+                <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-gold">
+                    <div class="text-5xl font-serif font-black text-navy">$773</div>
+                    <p class="text-xs font-black text-slate-400 uppercase tracking-widest mt-4">Avg Employer Credit / Employee</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-navy">
+                    <div class="text-5xl font-serif font-black text-navy">89%</div>
+                    <p class="text-xs font-black text-slate-400 uppercase tracking-widest mt-4">Retention Rate Improvement</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-navy">
+                    <div class="text-5xl font-serif font-black text-navy">23%</div>
+                    <p class="text-xs font-black text-slate-400 uppercase tracking-widest mt-4">Reduction in Health Claims</p>
+                </div>
+            </div>
 
-    const form = document.getElementById('contactForm');
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Analysis Request Received.');
-      form.reset();
-    });
-  </script>
+            <a href="#contact" class="inline-block bg-gold text-navy text-lg font-black px-12 py-6 rounded-full shadow-2xl hover:scale-105 transition-all uppercase tracking-widest">
+                Request Tax Impact Analysis
+            </a>
+        </section>
 
-</body>
-</html>
+        <section class="bg-white py-20 border-y border-slate-200">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h2 class="text-3xl font-serif font-black text-navy mb-12 uppercase tracking-tighter text-center">Executive Briefing</h2>
+                <div class="relative w-full aspect-video bg-black rounded-[2rem] shadow-2xl overflow-hidden border-[12px] border-white ring-1 ring-slate-200">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/INSERT_YOUTUBE_ID_HERE?rel=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        [Image of IRS Section 125 payroll tax reallocation mechanics]
+        <section id="tax-code" class="bg-navy py-20 text-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-3xl md:text-5xl font-serif font-black text-center mb-16 uppercase">IRS Tax Code Foundation</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white/10 p-8 rounded-2xl border-l-4 border-gold">
+                        <h3 class="text-lg font-bold text-gold mb-2 font-serif uppercase tracking-widest">Section 125</h3>
+                        <p class="text-sm text-slate-300">Cafeteria plan authority for pre-tax premium deductions. Enacted 1978.</p>
+                    </div>
+                    <div class="bg-white/10 p-8 rounded-2xl border-l-4 border-gold">
+                        <h3 class="text-lg font-bold text-gold mb-2 font-serif uppercase tracking-widest">Section 105</h3>
+                        <p class="text-sm text-slate-300">Self-Insured Medical Reimbursement Plan (SIMRP) authority.</p>
+                    </div>
+                    <div class="bg-white/10 p-8 rounded-2xl border-l-4 border-gold">
+                        <h3 class="text-lg font-bold text-gold mb-2 font-serif uppercase tracking-widest">Section 213(d)</h3>
+                        <p class="text-sm text-slate-300">Tax-free benefit qualification standards for medical care.</p>
+                    </div>
        
