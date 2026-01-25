@@ -1,434 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmileBone Benefits - Boost Your Business & Empower Your Employees</title>
-  <meta name="description" content="Enhance your team's benefits at no cost to your business. We turn payroll taxes into a powerful wellness program with significant tax savings.">
-  
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content="SmileBone Benefits - Employee Wellness Program">
-  <meta property="og:description" content="Reduce tax liability while providing valuable health benefits to your employees.">
+  <meta charset="utf-8">
+  <title>SmileBone Benefits - IRS Section 125 Mental Health Tax Strategy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IRS Section 125 compliant payroll tax strategy converting employer FICA obligations into funded mental health benefits.">
+  <meta property="og:title" content="SmileBone Benefits">
+  <meta property="og:description" content="IRS Section 125 compliant payroll tax strategy converting employer FICA obligations into funded mental health benefits.">
   <meta property="og:type" content="website">
-  
+  <meta property="og:image" content="/assets/proof-math.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .bg-custom-blue { background-color: #003366; }
-    .text-custom-yellow { color: #FFC72C; }
-    .bg-custom-yellow { background-color: #FFC72C; }
-    
-    /* Modal Styles */
-    .modal-backdrop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-      display: none;
-    }
-    .message-box {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      display: none;
-      text-align: center;
-      max-width: 90%;
-      width: 400px;
-    }
-    
-    /* Mobile Navigation */
-    .mobile-menu {
-      display: none;
-    }
-    .mobile-menu.active {
-      display: block;
-    }
-    
-    /* Form Error Styles */
-    .error-message {
-      color: #ef4444;
-      font-size: 0.875rem;
-      margin-top: 0.25rem;
-      display: none;
-    }
-    .input-error {
-      border-color: #ef4444 !important;
-    }
-    
-    /* Loading State */
-    .loading {
-      opacity: 0.7;
-      pointer-events: none;
-    }
-    
-    /* Focus Styles for Accessibility */
-    .focus-visible:focus {
-      outline: 2px solid #FFC72C;
-      outline-offset: 2px;
-    }
-    
-    /* Image Placeholder */
-    .image-placeholder {
-      background-color: #f3f4f6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 300px;
-      border-radius: 1rem;
-      color: #6b7280;
-    }
-    
-    @media (max-width: 768px) {
-      .desktop-nav { display: none; }
-      .mobile-nav { display: block; }
-    }
-    @media (min-width: 769px) {
-      .desktop-nav { display: block; }
-      .mobile-nav { display: none; }
-    }
+    :root{--sb-blue:#003366;--sb-yellow:#FFC72C}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    .bg-custom-blue{background-color:var(--sb-blue)}
+    .text-custom-yellow{color:var(--sb-yellow)}
+    .bg-custom-yellow{background-color:var(--sb-yellow)}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:40}
+    .modal{position:fixed;inset:0;display:none;z-index:50}
+    .modal[aria-hidden="false"],.modal-backdrop[data-open="true"]{display:block}
+    .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
   </style>
+  <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="1iH8HFLdWXBT0l65q" data-version="062024"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Modal Backdrop -->
-  <div id="modalBackdrop" class="modal-backdrop" onclick="closeMessageBox()" aria-hidden="true"></div>
-
-  <!-- Custom Message Box -->
-  <div id="messageBox" class="message-box" role="dialog" aria-labelledby="messageText" aria-modal="true">
-    <p id="messageText" class="text-lg mb-4"></p>
-    <button onclick="closeMessageBox()" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors focus-visible">Close</button>
-  </div>
-
   <!-- Header -->
-  <header class="bg-custom-blue text-white py-6 px-6 md:py-10 md:px-12 lg:px-24 shadow-lg sticky top-0 z-50">
-    <div class="flex items-center justify-between">
-      <!-- Brand -->
-      <div class="flex items-center space-x-4">
-        <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight">
-          SmileBone<span class="text-custom-yellow">Benefits</span>
-        </h1>
+  <header class="bg-custom-blue text-white sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-5 md:px-10">
+      <div class="h-20 md:h-24 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+          <span class="text-3xl md:text-4xl font-extrabold tracking-tight">SmileBone<span class="text-custom-yellow">Benefits</span></span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-10 text-lg">
+          <a href="#regulatory" class="hover:text-custom-yellow">IRS Foundation</a>
+          <a href="#crisis" class="hover:text-custom-yellow">Crisis Data</a>
+          <a href="#compliance" class="hover:text-custom-yellow">Compliance</a>
+          <a href="#how-it-works" class="hover:text-custom-yellow">How It Works</a>
+          <a href="#faq" class="hover:text-custom-yellow">FAQ</a>
+          <a href="#contact" class="hover:text-custom-yellow">Contact</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg bg-white/10 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+          <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
       </div>
-      
-      <!-- Desktop Navigation -->
-      <nav class="desktop-nav space-x-6 lg:space-x-10 text-lg lg:text-xl font-medium">
-        <a href="#about" class="hover:text-custom-yellow transition-colors focus-visible">About Us</a>
-        <a href="#how-it-works" class="hover:text-custom-yellow transition-colors focus-visible">How It Works</a>
-        <a href="#contact" class="hover:text-custom-yellow transition-colors focus-visible">Contact</a>
-      </nav>
-      
-      <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" class="mobile-nav text-white focus-visible" aria-label="Toggle navigation menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
     </div>
-    
-    <!-- Mobile Navigation Menu -->
-    <nav id="mobileMenu" class="mobile-menu mt-4 space-y-4 text-lg font-medium">
-      <a href="#about" class="block hover:text-custom-yellow transition-colors focus-visible" onclick="closeMobileMenu()">About Us</a>
-      <a href="#how-it-works" class="block hover:text-custom-yellow transition-colors focus-visible" onclick="closeMobileMenu()">How It Works</a>
-      <a href="#contact" class="block hover:text-custom-yellow transition-colors focus-visible" onclick="closeMobileMenu()">Contact</a>
-    </nav>
+
+    <!-- Mobile drawer -->
+    <div id="mobileMenu" class="md:hidden hidden bg-custom-blue/95 border-t border-white/10">
+      <nav class="max-w-7xl mx-auto px-5 py-4 flex flex-col gap-4 text-lg">
+        <a href="#regulatory" class="py-2 text-white hover:text-custom-yellow">IRS Foundation</a>
+        <a href="#crisis" class="py-2 text-white hover:text-custom-yellow">Crisis Data</a>
+        <a href="#compliance" class="py-2 text-white hover:text-custom-yellow">Compliance</a>
+        <a href="#how-it-works" class="py-2 text-white hover:text-custom-yellow">How It Works</a>
+        <a href="#faq" class="py-2 text-white hover:text-custom-yellow">FAQ</a>
+        <a href="#contact" class="py-2 text-white hover:text-custom-yellow">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="container mx-auto py-8 md:py-16 px-4">
+  <main>
 
-    <!-- Hero Section -->
-    <section id="hero" class="text-center mb-16">
-      <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-custom-blue leading-tight mb-4">
-        Boost Your Business & Empower Your Employees
-      </h2>
-      <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-        Enhance your team's benefits at no cost to your business. We turn payroll taxes into a powerful wellness program.
-      </p>
-      <a href="#contact" class="inline-block bg-custom-blue text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-transform focus-visible">Get Your Free Quote</a>
+    <!-- Hero -->
+    <section id="hero" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-20 text-center">
+      <div class="bg-custom-blue text-white py-3 px-6 rounded-full inline-block mb-6">
+        <span class="text-sm font-semibold">IRS Section 125 Compliant Tax Reallocation • Est. 1978</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-custom-blue leading-tight">IRS-Compliant Payroll Tax Strategy<br>Mandated Mental Health Crisis Response</h1>
+      <p class="mt-6 text-lg md:text-xl text-gray-700 max-w-4xl mx-auto">Section 125 cafeteria plan converts employer FICA obligations into funded mental health benefits. Established tax code authority since 1978.</p>
+      
+      <div class="mt-8 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="text-3xl font-bold text-custom-blue">$773</div>
+          <div class="text-sm text-gray-600 mt-2">Average employer payroll credit per employee annually</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="text-3xl font-bold text-custom-blue">89%</div>
+          <div class="text-sm text-gray-600 mt-2">Employee retention rate (industry avg: 71%)</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="text-3xl font-bold text-custom-blue">6+</div>
+          <div class="text-sm text-gray-600 mt-2">Therapy sessions + Mayo Clinic mental health programs</div>
+        </div>
+      </div>
+
+      <div class="mt-8 text-sm text-gray-600">
+        <p><strong>Required:</strong> W-2 employees only | <strong>Administered by:</strong> Attentive, EmployWell Plus, CP+, Vero</p>
+      </div>
+
+      <a href="#contact" class="mt-8 inline-block bg-custom-yellow text-custom-blue text-lg font-bold px-8 py-4 rounded-full shadow hover:brightness-95">Request Tax Impact Analysis</a>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="bg-white p-6 md:p-8 lg:p-12 rounded-3xl shadow-xl mb-16">
-      <h3 class="text-xl md:text-2xl lg:text-4xl font-bold text-center text-custom-blue mb-8">About Our Program</h3>
-      <p class="text-base md:text-lg leading-relaxed mb-6">
-        The SmileBone Benefits program is designed to create a true win-win for your business and your employees. We help you unlock significant financial tax credits while simultaneously providing your team with a suite of valuable health and wellness benefits.
-      </p>
-      <ul class="list-disc list-inside space-y-2 text-base md:text-lg">
-        <li>Reduce your business's tax liability.</li>
-        <li>Increase employee take-home pay.</li>
-        <li>Enhance benefits without raising costs.</li>
-        <li>Improve morale and retention.</li>
-      </ul>
-    </section>
-
-    <!-- Benefits Image Section -->
-    <section id="benefits-image" class="bg-[#F3F8FB] py-12 mb-16">
-      <div class="container mx-auto max-w-5xl px-4">
-        <div id="imageContainer">
-          <img id="benefitsImage" 
-               src="assets/proof-math.png"
-               alt="Businesses and employees save using payroll tax funded wellness benefits"
-               class="w-full h-auto rounded-2xl shadow-lg"
-               loading="lazy"
-               onerror="showImagePlaceholder()">
+    <!-- Regulatory Foundation -->
+    <section id="regulatory" class="bg-white py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-5 md:px-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-4">IRS Tax Code Foundation</h2>
+        <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">This program operates under established IRS authority. Not a loophole. Not experimental. Codified federal tax law.</p>
+        
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <h3 class="text-xl font-bold text-custom-blue mb-2">Section 125</h3>
+            <p class="text-gray-700 text-sm">Cafeteria plan authority for pre-tax premium deductions. Enacted 1978.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <h3 class="text-xl font-bold text-custom-blue mb-2">Section 105</h3>
+            <p class="text-gray-700 text-sm">Self-Insured Medical Reimbursement Plan (SIMRP) for qualified medical expenses.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <h3 class="text-xl font-bold text-custom-blue mb-2">Section 213(d)</h3>
+            <p class="text-gray-700 text-sm">Tax-free benefit qualification standards for medical care expenses.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <h3 class="text-xl font-bold text-custom-blue mb-2">Section 62(a)</h3>
+            <p class="text-gray-700 text-sm">Deduction authority for work-related expenses on pre-tax basis.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="mb-16">
-      <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-custom-blue mb-12">How It Works: A Simple 4 Step Process</h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
-          <h4 class="text-lg md:text-xl font-semibold mb-2 text-custom-blue">Step 1</h4>
-          <p class="text-sm md:text-base text-gray-600">Request Your Free Quote. Tell us about your team size, payroll, and benefit goals.</p>
+    <!-- Crisis Data -->
+    <section id="crisis" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-16">
+      <div class="bg-custom-blue text-white p-8 md:p-12 rounded-3xl shadow-xl">
+        <h2 class="text-2xl md:text-4xl font-bold text-center mb-6">Mental Health Crisis: Economic Impact</h2>
+        <p class="text-lg text-center mb-10 text-gray-200">The U.S. mental health crisis costs $282 billion annually in lost productivity. This is not a wellness perk—this is workforce preservation.</p>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-5xl font-extrabold text-custom-yellow mb-2">76%</div>
+            <div class="text-sm">of U.S. workers report at least one mental health symptom</div>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl font-extrabold text-custom-yellow mb-2">40%</div>
+            <div class="text-sm">of employee turnover is directly stress-related</div>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl font-extrabold text-custom-yellow mb-2">12</div>
+            <div class="text-sm">unplanned absence days/year for workers with poor mental health</div>
+          </div>
         </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
-          <h4 class="text-lg md:text-xl font-semibold mb-2 text-custom-blue">Step 2</h4>
-          <p class="text-sm md:text-base text-gray-600">Review Your Custom Plan. We'll show you estimated savings and program options. No obligation.</p>
+
+        <div class="mt-10 pt-8 border-t border-white/20">
+          <h3 class="text-xl font-bold mb-4">Employer Cost Per Employee (Mental Health-Related)</h3>
+          <ul class="space-y-3 text-gray-200">
+            <li>• Lost productivity, absenteeism, turnover: <strong class="text-white">$1,488/year</strong></li>
+            <li>• Burnout/disengagement (non-managerial): <strong class="text-white">$3,999/year</strong></li>
+            <li>• Job stress (health costs + underperformance): <strong class="text-white">Part of $300B annual U.S. total</strong></li>
+          </ul>
         </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
-          <h4 class="text-lg md:text-xl font-semibold mb-2 text-custom-blue">Step 3</h4>
-          <p class="text-sm md:text-base text-gray-600">Onboard Your Team. We handle all the setup, education, and compliance.</p>
-        </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
-          <h4 class="text-lg md:text-xl font-semibold mb-2 text-custom-blue">Step 4</h4>
-          <p class="text-sm md:text-base text-gray-600">Start Saving. Benefits go live, your team gains, and your business saves.</p>
+
+        <div class="mt-10 bg-white/10 p-6 rounded-xl">
+          <h3 class="text-xl font-bold mb-3">This Section 125 Program Addresses the Crisis Through Tax Reallocation:</h3>
+          <ul class="space-y-2 text-gray-200">
+            <li>• $773 average employer payroll credit per employee/year</li>
+            <li>• 89% employee retention rate (vs. 71% industry average)</li>
+            <li>• 23% reduction in health claims</li>
+            <li>• 94% employee program approval rating</li>
+            <li>• 50-employee company: <strong class="text-custom-yellow">$38,650 annual payroll credit</strong></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="bg-custom-blue p-6 md:p-8 lg:p-12 rounded-3xl shadow-xl mb-16 text-white">
-      <h3 class="text-xl md:text-2xl lg:text-4xl font-bold text-center mb-8">Get Started</h3>
-      <p class="text-base md:text-lg text-center mb-8">Fill out the form below to request your free, no-obligation quote and see how much your business can save.</p>
-      <form id="contactForm" class="max-w-xl mx-auto space-y-6" novalidate>
-        <div>
-          <label for="companyName" class="block text-gray-200 font-medium mb-2">Company Name *</label>
-          <input type="text" id="companyName" name="companyName" 
-                 class="w-full p-3 rounded-lg shadow-inner text-black focus-visible" 
-                 required aria-describedby="companyNameError">
-          <div id="companyNameError" class="error-message" role="alert"></div>
+    <!-- Compliance Framework -->
+    <section id="compliance" class="bg-[#F3F8FB] py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-5 md:px-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-10">Compliance Framework</h2>
+        
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl mb-8">
+          <h3 class="text-2xl font-bold text-custom-blue mb-4">Tax Reallocation Mechanics</h3>
+          <p class="text-lg text-gray-700 mb-6">Employee funds the employer would withhold for tax are released from tax liability under Section 125 authority. This is not employer money. These are not new employee deductions.</p>
+          
+          <div class="bg-gray-50 p-6 rounded-xl mb-6">
+            <h4 class="font-bold text-custom-blue mb-3">Fund Allocation (IRS Compliance Requirement)</h4>
+            <ul class="space-y-2 text-gray-700">
+              <li>• <strong>90%</strong> allocated to mental health benefits (required for IRS compliance)</li>
+              <li>• <strong>10%</strong> returned to employee paycheck ($35-40/check take-home increase)</li>
+              <li>• Employer saves <strong>7.65% FICA</strong> on reallocated amount</li>
+            </ul>
+          </div>
+
+          <div class="bg-custom-blue text-white p-6 rounded-xl">
+            <h4 class="font-bold mb-3">Example: $100 Tax Reallocation</h4>
+            <ul class="space-y-2">
+              <li>• Employee would have received: $0 (withheld for tax)</li>
+              <li>• Under Section 125: $10 to paycheck + $90 to benefits</li>
+              <li>• Employer FICA savings: $7.65 per $100 reallocated</li>
+              <li>• Employee net gain: $10/check + mental health access</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <label for="teamSize" class="block text-gray-200 font-medium mb-2">Team Size (Approx.) *</label>
-          <input type="number" id="teamSize" name="teamSize" min="1" max="10000"
-                 class="w-full p-3 rounded-lg shadow-inner text-black focus-visible" 
-                 required aria-describedby="teamSizeError">
-          <div id="teamSizeError" class="error-message" role="alert"></div>
+
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
+          <h3 class="text-2xl font-bold text-custom-blue mb-4">Plan Administration Structure</h3>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-bold text-custom-blue mb-3">Plan Type</h4>
+              <p class="text-gray-700 mb-2"><strong>Section 125 Cafeteria Plan</strong></p>
+              <p class="text-sm text-gray-600">NOT an HSA. NOT an FSA. Distinct regulatory classification.</p>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-custom-blue mb-3">Benefit Structure</h4>
+              <p class="text-gray-700 mb-2"><strong>Monthly access, non-carry-over</strong></p>
+              <p class="text-sm text-gray-600">Benefits available every month. Does not carry over calendar year.</p>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-custom-blue mb-3">Employer Role</h4>
+              <p class="text-gray-700 mb-2"><strong>Plan administrator</strong></p>
+              <p class="text-sm text-gray-600">No direct employer contribution. FICA savings from tax reallocation.</p>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-custom-blue mb-3">Consortium Administration</h4>
+              <p class="text-gray-700 mb-2"><strong>Attentive, EmployWell Plus, CP+, Vero</strong></p>
+              <p class="text-sm text-gray-600">Established provider network with compliance infrastructure.</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="email" class="block text-gray-200 font-medium mb-2">Work Email *</label>
-          <input type="email" id="email" name="email" 
-                 class="w-full p-3 rounded-lg shadow-inner text-black focus-visible" 
-                 required aria-describedby="emailError">
-          <div id="emailError" class="error-message" role="alert"></div>
+      </div>
+    </section>
+
+    <!-- Proof image -->
+    <section id="benefits-image" class="bg-white py-10">
+      <div class="max-w-5xl mx-auto px-5">
+        <h2 class="text-2xl md:text-3xl font-bold text-custom-blue mb-6 text-center">Financial Impact Illustration</h2>
+        <img
+          src="assets/proof-math.png"
+          alt="Employer and employee financial impact from Section 125 payroll tax reallocation"
+          onerror="this.style.display='none'"
+          class="w-full h-auto rounded-2xl shadow-lg"
+          loading="lazy">
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-10">Implementation Process</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transition-transform">
+          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 1</h3>
+          <p class="text-gray-600">Submit payroll structure for Section 125 tax impact analysis. No obligation.</p>
         </div>
-        <div>
-          <label for="phone" class="block text-gray-200 font-medium mb-2">Phone Number *</label>
-          <input type="tel" id="phone" name="phone" 
-                 class="w-full p-3 rounded-lg shadow-inner text-black focus-visible" 
-                 required aria-describedby="phoneError">
-          <div id="phoneError" class="error-message" role="alert"></div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transition-transform">
+          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 2</h3>
+          <p class="text-gray-600">Review compliance documentation and projected payroll credit calculations.</p>
         </div>
-        <button type="submit" id="submitBtn" 
-                class="w-full bg-custom-yellow text-custom-blue text-lg font-bold py-4 rounded-full shadow-lg hover:scale-105 transition-transform focus-visible">
-          <span id="submitText">Submit for Free Quote</span>
-          <span id="loadingText" style="display: none;">Submitting...</span>
-        </button>
-      </form>
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transition-transform">
+          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 3</h3>
+          <p class="text-gray-600">Seamless onboarding. We handle all Section 125 setup, employee education, and enrollment. Zero HR burden.</p>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transition-transform">
+          <h3 class="text-xl font-semibold text-custom-blue mb-2">Step 4</h3>
+          <p class="text-gray-600">Monthly tax reallocation begins. Mental health access activates.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- video -->
+    <section id="sbb-video" class="max-w-5xl mx-auto px-5 md:px-10 py-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-custom-blue mb-6 text-center">Program Overview</h2>
+      <video class="w-full rounded-xl shadow-lg" controls playsinline preload="metadata">
+        <source src="/how_it_works.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <!-- calculator -->
+    <section id="calculator" class="bg-[#0b122b] py-16">
+      <div class="max-w-5xl mx-auto px-5 text-white text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Section 125 Payroll Tax Impact Calculator</h2>
+        <p class="text-gray-300 mb-8">Estimate your organization's annual payroll credit based on W-2 employee count.</p>
+        <div class="mt-10 bg-white rounded-xl overflow-hidden shadow-lg">
+          <iframe
+            src="/employee_count.html"
+            class="w-full"
+            style="height:520px;"
+            frameborder="0"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="max-w-7xl mx-auto px-5 md:px-10 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-10">Frequently Asked Questions</h2>
+      
+      <div class="max-w-4xl mx-auto space-y-6">
+        
+        <!-- FAQ 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">Is this legal and compliant with IRS regulations?</h3>
+          <p class="text-gray-700 mb-3">Yes, absolutely. Section 125 Cafeteria Plans are explicitly authorized by the Internal Revenue Code and have been a standard, compliant part of employee benefits since 1978. This is not a loophole or experimental structure—it is codified federal tax law administered through an established provider consortium (Attentive, EmployWell Plus, CP+, Vero).</p>
+          <p class="text-gray-700">The IRS sections governing this program include Section 125 (cafeteria plan authority), Section 105 (medical reimbursement), Section 213(d) (qualified medical expenses), and Section 62(a) (work-related deductions).</p>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">How does the employer receive a payroll credit without paying anything?</h3>
+          <p class="text-gray-700 mb-3">The employer's payroll credit comes from FICA tax savings (7.65%) on the amount employees reallocate through Section 125. This is money the employer would have paid in payroll taxes that is now retained as a direct credit.</p>
+          <p class="text-gray-700">Example: If an employee reallocates $10,000 annually through the plan, the employer saves $765 in FICA taxes on that amount. Across 50 employees, this generates approximately $38,250 in annual payroll credits.</p>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">Are employees paying for this? How do they get more take-home pay?</h3>
+          <p class="text-gray-700 mb-3">Employees technically fund the benefits, but with money they would never have received. Here's how it works:</p>
+          <div class="bg-gray-50 p-4 rounded-lg mb-3">
+            <p class="text-gray-700 mb-2"><strong>Without Section 125:</strong></p>
+            <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
+              <li>Gross pay: $1,000</li>
+              <li>Taxes withheld (20%): -$200</li>
+              <li>Take-home: $800</li>
+            </ul>
+            <p class="text-gray-700 mb-2"><strong>With Section 125:</strong></p>
+            <ul class="list-disc list-inside text-gray-700 space-y-1">
+              <li>Gross pay: $1,000</li>
+              <li>Pre-tax reallocation: -$100</li>
+              <li>Taxable income: $900</li>
+              <li>Taxes withheld (20% on $900): -$180</li>
+              <li>10% returned to paycheck: +$10</li>
+              <li>Take-home: $730 (vs $800 without benefits)</li>
+              <li><strong>Net gain: $10/check + $90 in mental health benefits access</strong></li>
+            </ul>
+          </div>
+          <p class="text-gray-700">The employee receives a small increase in take-home pay ($35-40/check) plus full access to mental health benefits funded by the tax savings.</p>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">Is participation in this plan mandatory?</h3>
+          <p class="text-gray-700">No, participation is completely voluntary. However, because of the immediate tax savings and mental health benefit access, most employees (94% approval rating) choose to participate. Employees can opt out at any time.</p>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">Does this replace our existing health insurance or benefits?</h3>
+          <p class="text-gray-700">No. A Section 125 plan is not an insurance policy. This is a supplemental "second layer" of mental health and wellness benefits that operates completely independently of your existing benefit packages. It does not affect, replace, or modify any current policies. Your existing health insurance, dental, vision, and other benefits remain unchanged.</p>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">What mental health benefits do employees receive?</h3>
+          <p class="text-gray-700 mb-3">Employees receive comprehensive mental health and wellness access including:</p>
+          <ul class="list-disc list-inside text-gray-700 space-y-2">
+            <li>6 personal therapy sessions per year ($0 copay)</li>
+            <li>4 couples therapy sessions per year ($0 copay)</li>
+            <li>Mayo Clinic mental health programs</li>
+            <li>Addiction recovery programs</li>
+            <li>Wellness portal (breathwork, meditation, yoga, nutrition)</li>
+            <li>Identity protection for employee and family</li>
+            <li>Monthly wellness codes (100% off products/courses)</li>
+          </ul>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">How quickly do the savings and benefits start?</h3>
+          <p class="text-gray-700">The savings for both employees and employers begin immediately. Payroll tax reductions are reflected in the first paycheck after plan implementation. Mental health benefit access activates simultaneously with the first tax reallocation.</p>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">Is this a "use-it-or-lose-it" plan? Do benefits carry over year to year?</h3>
+          <p class="text-gray-700">Benefits are available monthly and do not carry over from one calendar year to the next. However, because benefits are accessible every month (not just once per year), employees have consistent access and do not face a year-end "lose it" scenario. This is a monthly access model, not an annual accumulation model.</p>
+        </div>
+
+        <!-- FAQ 9 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">What is required for our company to qualify?</h3>
+          <p class="text-gray-700 mb-3">Basic qualifying requirements:</p>
+          <ul class="list-disc list-inside text-gray-700 space-y-2">
+            <li>Employ W-2 workers (not 1099 contractors)</li>
+            <li>Minimum 10 employees recommended for cost efficiency</li>
+            <li>Currently offer some form of health benefits</li>
+          </ul>
+          <p class="text-gray-700 mt-3">The consortium handles all Section 125 plan setup, administration, compliance documentation, and employee onboarding. Seamless implementation with zero additional HR burden for the employer.</p>
+        </div>
+
+        <!-- FAQ 10 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">Has this been audited by the IRS? What is the audit success rate?</h3>
+          <p class="text-gray-700">Section 125 plans administered through this consortium have been implemented for decades with established compliance protocols. The structure uses standard IRS-approved tax code provisions that are regularly reviewed during routine payroll audits. Because this uses established cafeteria plan authority (not novel interpretations), audit challenges are rare when properly administered.</p>
+        </div>
+
+        <!-- FAQ 11 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">What does the onboarding process look like?</h3>
+          <p class="text-gray-700 mb-3">Onboarding is completely seamless and handled entirely by our team. Here's what happens:</p>
+          <ul class="list-disc list-inside text-gray-700 space-y-2 mb-3">
+            <li>We integrate with your existing payroll system (no disruption)</li>
+            <li>We conduct employee education sessions explaining the benefits and tax savings</li>
+            <li>We handle all enrollment documentation and compliance paperwork</li>
+            <li>We provide ongoing support for employee questions</li>
+            <li>We manage all monthly benefit access and reimbursements</li>
+          </ul>
+          <p class="text-gray-700"><strong>Timeline:</strong> Most implementations are complete within 2-3 weeks. Your HR team's involvement is minimal—typically just initial payroll system coordination.</p>
+        </div>
+
+        <!-- FAQ 12 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-bold text-custom-blue mb-3">Can our accountant or tax advisor review the structure?</h3>
+          <p class="text-gray-700">Absolutely. We encourage all prospective employers to have their tax advisors review the Section 125 plan structure, compliance documentation, and projected tax impact calculations before implementation. We provide full transparency on the IRS code sections utilized and the tax reallocation mechanics.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="max-w-7xl mx-auto px-5 md:px-10 py-16">
+      <div class="bg-custom-blue text-white p-8 md:p-12 rounded-3xl shadow-xl">
+        <h2 class="text-2xl md:text-4xl font-bold text-center mb-2">Request Tax Impact Analysis</h2>
+        <p class="text-lg text-center mb-8">No cost. No obligation. Consult with your tax advisor on organization-specific impact.</p>
+
+        <form id="contactForm" class="max-w-xl mx-auto space-y-6" aria-labelledby="contactHeading">
+          <span id="contactHeading" class="visually-hidden">Contact form</span>
+
+          <label class="block">
+            <span class="block text-gray-200 font-medium mb-2">Company Name</span>
+            <input type="text" name="companyName" class="w-full p-3 rounded-lg shadow-inner text-black" required>
+          </label>
+
+          <label class="block">
+            <span class="block text-gray-200 font-medium mb-2">W-2 Employee Count</span>
+            <input type="number" name="teamSize" min="10" class="w-full p-3 rounded-lg shadow-inner text-black" required>
+          </label>
+
+          <label class="block">
+            <span class="block text-gray-200 font-medium mb-2">Work Email</span>
+            <input type="email" name="email" class="w-full p-3 rounded-lg shadow-inner text-black" required>
+          </label>
+
+          <label class="block">
+            <span class="block text-gray-200 font-medium mb-2">Phone</span>
+            <input type="tel" name="phone" class="w-full p-3 rounded-lg shadow-inner text-black" required>
+          </label>
+
+          <div class="bg-white/10 p-4 rounded-lg text-sm">
+            <p class="font-semibold mb-2">Qualifying Requirements:</p>
+            <label class="flex items-center gap-2 mb-2">
+              <input type="checkbox" name="hasW2" required class="w-4 h-4">
+              <span>We employ W-2 workers</span>
+            </label>
+            <label class="flex items-center gap-2 mb-2">
+              <input type="checkbox" name="hasMinEmployees" required class="w-4 h-4">
+              <span>Company has 10+ employees</span>
+            </label>
+            <label class="flex items-center gap-2">
+              <input type="checkbox" name="hasHealthBenefits" required class="w-4 h-4">
+              <span>Currently offer health benefits</span>
+            </label>
+          </div>
+
+          <button type="submit" class="w-full bg-custom-yellow text-custom-blue text-lg font-bold py-4 rounded-full shadow hover:brightness-95">Submit for Analysis</button>
+        </form>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="text-gray-500 text-sm text-center py-6 mt-16 rounded-t-xl shadow-inner">
-    <p>&copy; 2025 SmileBone Benefits. All Rights Reserved.</p>
+  <footer class="bg-gray-100 text-gray-600 text-sm py-8">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-center space-y-4">
+        <p class="font-semibold text-gray-800">SmileBone Benefits</p>
+        <p class="max-w-3xl mx-auto">SmileBone Benefits administers IRS Section 125 compliant cafeteria plans. Tax savings vary by payroll structure and employee participation. Consult your tax advisor for organization-specific impact. Plan administered through consortium: Attentive, EmployWell Plus, CP+, Vero.</p>
+        <p>© 2025 Smile Bone Benefits. All rights reserved.</p>
+        <p>
+          <a href="/privacy.html" class="hover:underline">Privacy Policy</a>
+          |
+          <a href="/terms.html" class="hover:underline">Terms of Service</a>
+        </p>
+      </div>
+    </div>
   </footer>
 
-  <!-- Scripts -->
-  <script>
-    // Mobile Menu Toggle
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
-    }
-    
-    function closeMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.remove('active');
-    }
-    
-    // Modal Functions
-    function closeMessageBox() {
-      document.getElementById("messageBox").style.display = "none";
-      document.getElementById("modalBackdrop").style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-    
-    function showMessageBox(message) {
-      document.getElementById("messageText").innerText = message;
-      document.getElementById("messageBox").style.display = "block";
-      document.getElementById("modalBackdrop").style.display = "block";
-      document.body.style.overflow = "hidden";
-      document.getElementById("messageBox").focus();
-    }
-    
-    // Image Error Handling
-    function showImagePlaceholder() {
-      const container = document.getElementById('imageContainer');
-      container.innerHTML = `
-        <div class="image-placeholder">
-          <div class="text-center">
-            <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-            <p class="text-lg font-semibold">Benefits Visualization</p>
-            <p class="text-sm">See how businesses and employees save with our program</p>
-          </div>
+  <!-- Modal + backdrop -->
+  <div id="backdrop" class="modal-backdrop" data-open="false" tabindex="-1" aria-hidden="true"></div>
+  <section id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+    <div class="min-h-full flex items-center justify-center p-4">
+      <div class="bg-white w-full max-w-md p-6 rounded-2xl shadow-xl">
+        <h2 id="modalTitle" class="text-xl font-bold mb-2">Thank you</h2>
+        <p id="modalDesc" class="text-gray-700 mb-6">We received your request for a Section 125 tax impact analysis. We will contact you within 24-48 hours.</p>
+        <div class="flex justify-end gap-3">
+          <button id="closeBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-900">Close</button>
         </div>
-      `;
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+    menuBtn?.addEventListener('click', () => {
+      const open = mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      iconOpen.classList.toggle('hidden', !open);
+      iconClose.classList.toggle('hidden', open);
+    });
+
+    // Modal helpers
+    const modal = document.getElementById('modal');
+    const backdrop = document.getElementById('backdrop');
+    const closeBtn = document.getElementById('closeBtn');
+    let lastFocus = null;
+
+    function openModal() {
+      lastFocus = document.activeElement;
+      modal.setAttribute('aria-hidden','false');
+      backdrop.dataset.open = 'true';
+      closeBtn?.focus();
+      document.addEventListener('keydown', onKeydown);
     }
-    
-    // Form Validation
-    function validateField(field) {
-      const value = field.value.trim();
-      const errorElement = document.getElementById(field.id + 'Error');
-      let isValid = true;
-      let errorMessage = '';
-      
-      // Clear previous errors
-      field.classList.remove('input-error');
-      errorElement.style.display = 'none';
-      
-      if (!value) {
-        errorMessage = 'This field is required.';
-        isValid = false;
-      } else {
-        switch(field.type) {
-          case 'email':
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(value)) {
-              errorMessage = 'Please enter a valid email address.';
-              isValid = false;
-            }
-            break;
-          case 'number':
-            const num = parseInt(value);
-            if (isNaN(num) || num < 1 || num > 10000) {
-              errorMessage = 'Please enter a valid team size (1-10000).';
-              isValid = false;
-            }
-            break;
-          case 'tel':
-            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-            const cleanPhone = value.replace(/[\s\-\(\)\.]/g, '');
-            if (!phoneRegex.test(cleanPhone) || cleanPhone.length < 10) {
-              errorMessage = 'Please enter a valid phone number.';
-              isValid = false;
-            }
-            break;
-        }
-      }
-      
-      if (!isValid) {
-        field.classList.add('input-error');
-        errorElement.textContent = errorMessage;
-        errorElement.style.display = 'block';
-      }
-      
-      return isValid;
+    function closeModal() {
+      modal.setAttribute('aria-hidden','true');
+      backdrop.dataset.open = 'false';
+      document.removeEventListener('keydown', onKeydown);
+      if (lastFocus) lastFocus.focus();
     }
-    
-    // Form Submission
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      
-      const form = event.target;
-      const fields = form.querySelectorAll('input[required]');
-      let isFormValid = true;
-      
-      // Validate all fields
-      fields.forEach(field => {
-        if (!validateField(field)) {
-          isFormValid = false;
-        }
-      });
-      
-      if (!isFormValid) {
-        return;
-      }
-      
-      // Show loading state
-      const submitBtn = document.getElementById('submitBtn');
-      const submitText = document.getElementById('submitText');
-      const loadingText = document.getElementById('loadingText');
-      
-      submitBtn.classList.add('loading');
-      submitText.style.display = 'none';
-      loadingText.style.display = 'inline';
-      
-      // Simulate form submission (replace with actual submission logic)
-      setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        submitText.style.display = 'inline';
-        loadingText.style.display = 'none';
-        
-        showMessageBox("Thank you! We have received your request and will be in touch shortly.");
-        form.reset();
-      }, 2000);
+    function onKeydown(e){
+      if (e.key === 'Escape') closeModal();
     }
-    
-    // Event Listeners
-    document.addEventListener('DOMContentLoaded', function() {
-      // Mobile menu
-      document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
-      
-      // Form submission
-      document.getElementById('contactForm').addEventListener('submit', handleFormSubmit);
-      
-      // Real-time validation
-      const formFields = document.querySelectorAll('#contactForm input[required]');
-      formFields.forEach(field => {
-        field.addEventListener('blur', () => validateField(field));
-      });
-      
-      // Keyboard navigation for modal
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-          const messageBox = document.getElementById('messageBox');
-          if (messageBox.style.display === 'block') {
-            closeMessageBox();
-          }
-        }
-      });
-      
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
+    backdrop?.addEventListener('click', closeModal);
+    closeBtn?.addEventListener('click', closeModal);
+
+    // Form submit
+    const form = document.getElementById('contactForm');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      openModal();
+      form.reset();
     });
   </script>
 </body>
 </html>
+
 
 
 
