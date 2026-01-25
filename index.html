@@ -1,116 +1,212 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Smile Bone Benefits | IRS Section 125 Tax Strategy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmployWell Benefits</title>
+    <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { navy: '#003366', gold: '#FFC72C', slateBg: '#F8FAFC' },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] }
-                }
-            }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
         }
-    </script>
+        .bg-custom-blue {
+            background-color: #003366; /* EmployWell Now's brand color */
+        }
+        .text-custom-yellow {
+            color: #FFC72C;
+        }
+        /* Style for the custom message box */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            text-align: center;
+        }
+    </style>
 </head>
-<body class="bg-slateBg text-slate-900 font-sans antialiased">
+<body class="bg-gray-50 text-gray-800">
 
-    <header class="bg-navy text-white sticky top-0 z-30 shadow-xl border-b-4 border-gold">
-        <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
-            <div class="font-serif font-black text-2xl md:text-3xl tracking-tighter uppercase">
-                Smile Bone <span class="text-gold">Benefits</span>
-            </div>
-            <nav class="hidden md:flex items-center gap-10 font-bold text-xs uppercase tracking-widest">
-                <a href="#crisis" class="hover:text-gold transition">Crisis Data</a>
-                <a href="#tax-code" class="hover:text-gold transition">Compliance</a>
-                <a href="#calculator" class="hover:text-gold transition text-gold">Calculator</a>
-                <a href="#contact" class="bg-white text-navy px-6 py-2 rounded shadow-lg hover:bg-gold transition">Contact</a>
-            </nav>
+    <!-- Custom Message Box -->
+    <div id="messageBox" class="message-box">
+        <p id="messageText" class="text-lg mb-4"></p>
+        <button onclick="closeMessageBox()" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors">
+            OK
+        </button>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-custom-blue text-white py-4 px-6 md:px-12 flex justify-between items-center rounded-b-xl shadow-lg">
+        <div class="flex items-center space-x-4">
+            <!-- Simple SVG logo with brand name -->
+            <svg class="h-8 w-8 text-custom-yellow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <h1 class="text-2xl md:text-3xl font-bold">
+                EmployWell <span class="text-custom-yellow">Benefits</span>
+            </h1>
         </div>
+        <!-- Simple navigation for a landing page -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="#about" class="hover:text-custom-yellow transition-colors">About Us</a>
+            <a href="#how-it-works" class="hover:text-custom-yellow transition-colors">How It Works</a>
+            <a href="#contact" class="hover:text-custom-yellow transition-colors">Contact</a>
+        </nav>
     </header>
 
-    <main>
-        <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 text-center">
-            <div class="bg-navy text-white py-2 px-6 rounded-full inline-block mb-8 shadow-xl uppercase text-[10px] font-black tracking-widest">
-                IRS Section 125 Compliant Strategy
-            </div>
-            <h1 class="text-4xl md:text-7xl font-serif font-black text-navy leading-tight mb-8 tracking-tighter uppercase">
-                Mental Health Crisis Response Program
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-12 font-medium">
-                IRS Section 125 provides the legal funding mechanism to convert employer FICA obligations into premium mental health benefits.
+    <main class="container mx-auto px-4 py-8 md:py-16">
+        <!-- Hero Section -->
+        <section id="hero" class="text-center mb-16">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-custom-blue leading-tight mb-4">
+                Boost Your Business & Empower Your Employees
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Enhance your team's benefits at no cost to your business. We turn payroll taxes into a powerful wellness program.
             </p>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16 text-left">
-                <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-gold">
-                    <div class="text-5xl font-serif font-black text-navy">$773</div>
-                    <p class="text-xs font-black text-slate-400 uppercase tracking-widest mt-4">Avg Employer Credit / Employee</p>
-                </div>
-                <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-navy">
-                    <div class="text-5xl font-serif font-black text-navy">89%</div>
-                    <p class="text-xs font-black text-slate-400 uppercase tracking-widest mt-4">Retention Rate Improvement</p>
-                </div>
-                <div class="bg-white p-10 rounded-3xl shadow-2xl border-t-8 border-navy">
-                    <div class="text-5xl font-serif font-black text-navy">23%</div>
-                    <p class="text-xs font-black text-slate-400 uppercase tracking-widest mt-4">Reduction in Health Claims</p>
-                </div>
-            </div>
-            
-            <a href="#contact" class="inline-block bg-gold text-navy text-lg font-black px-12 py-6 rounded-full shadow-2xl hover:scale-105 transition-all uppercase tracking-widest">
-                Request Tax Impact Analysis
+            <a href="#contact" class="inline-block bg-custom-blue text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300 ease-in-out">
+                Get Your Free Quote
             </a>
         </section>
 
-        [Image of the impact of workplace stress on productivity and health costs]
-        <section id="crisis" class="bg-white py-20 border-y border-slate-200">
-            <div class="max-w-7xl mx-auto px-6">
-                <h2 class="text-3xl md:text-5xl font-serif font-black text-navy text-center mb-16 uppercase">Workplace Crisis Data</h2>
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <div class="space-y-8">
-                        <div class="border-l-8 border-gold pl-6">
-                            <h3 class="text-2xl font-serif font-black text-navy uppercase">$282 Billion</h3>
-                            <p class="text-slate-600 font-medium">Annual workforce productivity loss due to unaddressed mental health symptoms.</p>
-                        </div>
-                        <div class="border-l-8 border-navy pl-6">
-                            <h3 class="text-2xl font-serif font-black text-navy uppercase">40% Turnover</h3>
-                            <p class="text-slate-600 font-medium">Employee turnover directly attributed to workplace stress and burnout.</p>
-                        </div>
-                    </div>
-                    <div class="bg-navy p-10 rounded-3xl text-white shadow-2xl">
-                        <h4 class="text-xl font-serif font-black mb-4 text-gold uppercase tracking-widest">The Inaction Cost</h4>
-                        <p class="text-slate-300 leading-relaxed mb-6 font-medium font-sans italic">Organizations not addressing mental health incur $1,488 per employee annually in lost productivity.</p>
-                        <div class="text-4xl font-serif font-black">$3,999/yr</div>
-                        <p class="text-xs text-gold font-black uppercase tracking-widest mt-2">Cost of non-managerial burnout</p>
-                    </div>
+        <!-- About Us Section -->
+        <section id="about" class="bg-white p-8 md:p-12 rounded-3xl shadow-xl mb-16">
+            <h3 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-8">
+                About Our Program
+            </h3>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6 text-gray-700">
+                    <p class="text-lg leading-relaxed">
+                        The EmployWell Benefits program is designed to create a true win-win for your business and your employees. We help you unlock significant financial tax credits while simultaneously providing your team with a suite of valuable health and wellness benefits.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        We leverage the **Section 125 Tax Benefit Program**, a legally compliant and proven method, to fund our comprehensive wellness packages. This means you don't have to change your existing benefits, and there are no out-of-pocket costs.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>Reduce your business's tax liability.</li>
+                        <li>Increase employee take-home pay.</li>
+                        <li>Enhance benefits without raising costs.</li>
+                        <li>Improve morale and retention.</li>
+                    </ul>
+                </div>
+                <div class="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+                    <!-- Placeholder image with a theme matching the brand -->
+                    <img src="https://placehold.co/600x400/003366/FFC72C?text=Financial+and+Wellness+Solution" alt="Financial and Wellness Solution" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
 
-        <section class="bg-slateBg py-20 border-b border-slate-200 text-center">
-            <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-3xl font-serif font-black text-navy mb-12 uppercase tracking-tighter">Executive Briefing</h2>
-                <div class="relative w-full aspect-video bg-black rounded-[2rem] shadow-2xl overflow-hidden border-[12px] border-white ring-1 ring-slate-200">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID?rel=0" frameborder="0" allowfullscreen></iframe>
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="mb-16">
+            <h3 class="text-3xl md:text-4xl font-bold text-center text-custom-blue mb-12">
+                How It Works: A Simple 4-Step Process
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto bg-custom-blue rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white text-3xl font-bold">1</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 text-custom-blue">Request Your Free Quote</h4>
+                    <p class="text-gray-600">Tell us about your team size, payroll, and benefit goals.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto bg-custom-blue rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white text-3xl font-bold">2</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 text-custom-blue">Review Your Custom Plan</h4>
+                    <p class="text-gray-600">We'll show you estimated savings and program options. No obligation.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto bg-custom-blue rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white text-3xl font-bold">3</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 text-custom-blue">Onboard Your Team</h4>
+                    <p class="text-gray-600">We handle all the setup, education, and compliance.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-white p-6 rounded-3xl shadow-xl text-center hover:scale-105 transform transition-transform duration-300">
+                    <div class="w-16 h-16 mx-auto bg-custom-blue rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white text-3xl font-bold">4</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2 text-custom-blue">Start Saving</h4>
+                    <p class="text-gray-600">Benefits go live, your team gains, and your business saves.</p>
                 </div>
             </div>
         </section>
 
-        [Image of IRS Section 125 payroll tax reallocation mechanics]
-        <section id="tax-code" class="bg-navy py-24 text-white">
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                <h2 class="text-4xl font-serif font-black mb-16 uppercase">IRS Compliance Foundation</h2>
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="bg-white/10 p-8 rounded-2xl border-b-4 border-gold text-left">
-                        <h4 class="font-serif font-black text-gold mb-2 uppercase">Section 125</h4>
-                        <p class="text-sm text-slate-400">Cafeteria plan authority for pre-tax premium deductions. Enacted 1978.</p>
-                    </div>
-                    <div class="bg-white/10 p-8 rounded-2xl border-b-4 border-gold text-left">
-                        <h4 class="font-serif font-black text-gold mb-2 uppercase">Section 105</h4>
-                        <p class="text-sm text-slate-
+        <!-- Contact Form Section -->
+        <section id="contact" class="bg-custom-blue p-8 md:p-12 rounded-3xl shadow-2xl">
+            <h3 class="text-3xl md:text-4xl font-bold text-center text-white mb-8">
+                Ready to Get Started?
+            </h3>
+            <p class="text-lg text-center text-gray-200 mb-8 max-w-2xl mx-auto">
+                Fill out the form below to request your free, no-obligation quote and see how much your business can save.
+            </p>
+            <form id="contactForm" class="max-w-xl mx-auto space-y-6">
+                <div>
+                    <label for="companyName" class="block text-gray-200 font-medium mb-2">Company Name</label>
+                    <input type="text" id="companyName" name="companyName" class="w-full p-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-custom-yellow" required>
+                </div>
+                <div>
+                    <label for="teamSize" class="block text-gray-200 font-medium mb-2">Team Size (Approx.)</label>
+                    <input type="number" id="teamSize" name="teamSize" class="w-full p-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-custom-yellow" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-200 font-medium mb-2">Work Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-custom-yellow" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-200 font-medium mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="w-full p-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-custom-yellow">
+                </div>
+                <button type="submit" class="w-full bg-custom-yellow text-custom-blue text-lg font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transform transition-transform duration-300 ease-in-out">
+                    Submit for Free Quote
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 text-center py-6 mt-16 rounded-t-xl shadow-inner">
+        <p class="text-sm">© 2025 EmployWell Benefits. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Function to show a custom message box
+        function showMessageBox(message) {
+            document.getElementById('messageText').innerText = message;
+            document.getElementById('messageBox').style.display = 'block';
+        }
+
+        // Function to close the custom message box
+        function closeMessageBox() {
+            document.getElementById('messageBox').style.display = 'none';
+        }
+
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // For now, we will simply show a success message.
+            // In a real-world scenario, you would send this data to a backend.
+            showMessageBox("Thank you! We have received your request and will be in touch shortly.");
+
+            // Clear the form fields after submission
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
+              
        
